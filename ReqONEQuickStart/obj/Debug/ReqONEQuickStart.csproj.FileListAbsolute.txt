@@ -1,0 +1,4 @@
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqONEQuickStart\bin\Debug\ReqOneNaturalLanguage.dll
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqONEQuickStart\bin\Debug\ReqOneNaturalLanguage.pdb
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqONEQuickStart\obj\Debug\ReqOneNaturalLanguage.dll
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqONEQuickStart\obj\Debug\ReqOneNaturalLanguage.pdb

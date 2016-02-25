@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5FA04859-1D5C-430C-8112-88B919B79F6A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReqOneApiReference</RootNamespace>
+    <AssemblyName>ReqOneApiReference</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ReqOneApi\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="App_prod.config" />
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.AccessAndRefreshTokenInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.AccessTokenInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Answer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.BillingCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.ChangeHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Currency.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.CustomFieldDefinition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.ExternalLink.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Issue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.IssueFromQuestDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.IssueFromQuestionnaire.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.IssueGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.IssueRequirement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.IssueSearchFilter.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.IssueSearchResults.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.IssueStatisticsBasic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.IterationStatisticsBasic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.ObjectAttachment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.ObjectCustomFieldData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.ObjectNote.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Plan.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.PlanStatistics.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Project.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.ProjectAppStatistics.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.ProjectInvitation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.ProjectStatistics.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Question.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.QuestionGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Questionnaire.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.QuestionnaireGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.QuestionnaireRequirementCustomData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.QuestionnaireRequirementField.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.QuestionnaireStatisticsBasic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.QuestionnaireSubmission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.QuestionnaireSubmissionSearchResults.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Rate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Requirement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementAttachment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementAttachmentCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementCustomDataMatrix.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementCustomFieldData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementFromQuestionnaire.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementFromQuestionnaireDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementLink.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementLinkMatrix.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementNote.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementNoteCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementOneApp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementOneConstants.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementSearchFilter.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.RequirementSearchResults.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.SearchResults.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.SecurityPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Specification.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.SpecificationsStatisticsBasic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.StorageItemInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.SurveyStatisticsBasic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Task.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.TaskDependency.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.TaskLink.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.TaskUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Template.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.Tender.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.TenderStatisticsBasic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.TimeRegistration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.TimeRegistrationSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.TreeNode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.UserGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.UserPermissionsForApps.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\ReqOneApiReference.ReqOneApi.WebHookConsumer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP1.wsdl" />
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP121.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP1210.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP122.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP123.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP124.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP125.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP126.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP127.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP128.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP129.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ReqOneApi\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReqOneApi\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReqOneApi\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReqOneApi\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReqOneApi\RequirementOneApiSOAP.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

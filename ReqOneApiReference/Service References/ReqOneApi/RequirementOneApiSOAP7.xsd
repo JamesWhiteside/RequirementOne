@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AuthAndRefreshTokenInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuthToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RefreshToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecondsUntilExpiry" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthAndRefreshTokenInfo" nillable="true" type="AuthAndRefreshTokenInfo" />
+  <xs:complexType name="AuthTokenInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuthToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecondsUntilExpiry" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthTokenInfo" nillable="true" type="AuthTokenInfo" />
+</xs:schema>

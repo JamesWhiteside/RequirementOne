@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ReqOne.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ReqOne.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="ChangeActivity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Create" />
+      <xs:enumeration value="Update" />
+      <xs:enumeration value="Delete" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ChangeActivity" nillable="true" type="tns:ChangeActivity" />
+  <xs:simpleType name="ObjectFields">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="All">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Name">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Details">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TOC">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CustomID">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Note">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Attachment">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CustomField">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Status">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Link">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Requirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LastReqType">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AssignedTo">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Created">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BillingCode">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Completed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Estimate">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">15</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EndDate">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="StartDate">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">17</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Remaining">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">18</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Predecessor">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">19</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="User">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Reference">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">21</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IsMilestone">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">23</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IsCompleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">24</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ExternalLink">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">25</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ObjectFields" nillable="true" type="tns:ObjectFields" />
+  <xs:simpleType name="RequirementOneObjectTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Customer" />
+      <xs:enumeration value="Account" />
+      <xs:enumeration value="Project" />
+      <xs:enumeration value="Specification" />
+      <xs:enumeration value="Requirement" />
+      <xs:enumeration value="Questionnaire" />
+      <xs:enumeration value="User" />
+      <xs:enumeration value="Global" />
+      <xs:enumeration value="Issue" />
+      <xs:enumeration value="Tender" />
+      <xs:enumeration value="QuestionnaireGroup" />
+      <xs:enumeration value="WorkflowInstance" />
+      <xs:enumeration value="CustomField" />
+      <xs:enumeration value="QstQuestionnaire" />
+      <xs:enumeration value="IttQuestionnaire" />
+      <xs:enumeration value="Task" />
+      <xs:enumeration value="App" />
+      <xs:enumeration value="Plan" />
+      <xs:enumeration value="IssueGroup" />
+      <xs:enumeration value="TableOfContents" />
+      <xs:enumeration value="SpecificationCustomFieldDefinition" />
+      <xs:enumeration value="SpecificationNoteCategory" />
+      <xs:enumeration value="SpecificationAttachmentCategory" />
+      <xs:enumeration value="SpecificationCustomFieldValue" />
+      <xs:enumeration value="RequirementNote" />
+      <xs:enumeration value="RequirementAttachment" />
+      <xs:enumeration value="RequirementCustomFieldValue" />
+      <xs:enumeration value="RequirementLink" />
+      <xs:enumeration value="RequirementChangeHistory" />
+      <xs:enumeration value="RequirementCustomId" />
+      <xs:enumeration value="IssueCustomFieldDefinition" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RequirementOneObjectTypes" nillable="true" type="tns:RequirementOneObjectTypes" />
+  <xs:simpleType name="ExternalLinkType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Document" />
+      <xs:enumeration value="Spreadsheet" />
+      <xs:enumeration value="Diagram" />
+      <xs:enumeration value="Web" />
+      <xs:enumeration value="LocalFile" />
+      <xs:enumeration value="Jira" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ExternalLinkType" nillable="true" type="tns:ExternalLinkType" />
+  <xs:simpleType name="AppStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Copy" />
+      <xs:enumeration value="Template">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Dummy">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Wiki">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AppStatus" nillable="true" type="tns:AppStatus" />
+  <xs:simpleType name="TenderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Tender" />
+      <xs:enumeration value="Feedback" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TenderType" nillable="true" type="tns:TenderType" />
+  <xs:simpleType name="UpDown">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Up">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Down">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UpDown" nillable="true" type="tns:UpDown" />
+  <xs:simpleType name="CustomFieldType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="SingleValue" />
+      <xs:enumeration value="ListOfValues" />
+      <xs:enumeration value="UploadFile" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CustomFieldType" nillable="true" type="tns:CustomFieldType" />
+  <xs:simpleType name="AscDesc">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Ascending" />
+      <xs:enumeration value="Descending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AscDesc" nillable="true" type="tns:AscDesc" />
+  <xs:simpleType name="SubmissionStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="NotParsed" />
+      <xs:enumeration value="PartiallyParsed" />
+      <xs:enumeration value="Closed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubmissionStatus" nillable="true" type="tns:SubmissionStatus" />
+  <xs:simpleType name="IssueStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="ResolvedFixed" />
+      <xs:enumeration value="Closed" />
+      <xs:enumeration value="ClosedNoRepro" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="IssueStatus" nillable="true" type="tns:IssueStatus" />
+  <xs:simpleType name="Permissions">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Read">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ReadWrite">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ReadWriteAdmin">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="Permissions" nillable="true" type="tns:Permissions" />
+  <xs:simpleType name="UserRole">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="ProjectManager" />
+      <xs:enumeration value="BusinessAnalyst" />
+      <xs:enumeration value="Developer" />
+      <xs:enumeration value="BusinessOwner" />
+      <xs:enumeration value="Consultant" />
+      <xs:enumeration value="Student" />
+      <xs:enumeration value="Researcher" />
+      <xs:enumeration value="Media" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserRole" nillable="true" type="tns:UserRole" />
+  <xs:complexType name="ArrayOfObjectFields">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ObjectFields" type="tns:ObjectFields" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfObjectFields" nillable="true" type="tns:ArrayOfObjectFields" />
+  <xs:simpleType name="YesNoAll">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Yes" />
+      <xs:enumeration value="No" />
+      <xs:enumeration value="All" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="YesNoAll" nillable="true" type="tns:YesNoAll" />
+  <xs:simpleType name="RequirementSearchFields">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="ProjectName" />
+      <xs:enumeration value="Specification" />
+      <xs:enumeration value="TableOfContents" />
+      <xs:enumeration value="CustomField" />
+      <xs:enumeration value="Users" />
+      <xs:enumeration value="Name" />
+      <xs:enumeration value="Details" />
+      <xs:enumeration value="CustomID" />
+      <xs:enumeration value="Note" />
+      <xs:enumeration value="AttachDescription" />
+      <xs:enumeration value="Created" />
+      <xs:enumeration value="CreatedBy" />
+      <xs:enumeration value="Updated" />
+      <xs:enumeration value="UpdatedBy" />
+      <xs:enumeration value="Random" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RequirementSearchFields" nillable="true" type="tns:RequirementSearchFields" />
+  <xs:simpleType name="LinkType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Parent" />
+      <xs:enumeration value="Child" />
+      <xs:enumeration value="Bidirectional" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LinkType" nillable="true" type="tns:LinkType" />
+  <xs:simpleType name="SpecificationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Requirement" />
+      <xs:enumeration value="Test" />
+      <xs:enumeration value="UseCase" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SpecificationType" nillable="true" type="tns:SpecificationType" />
+  <xs:complexType name="ArrayOfBillingChargeDetailsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BillingChargeDetailsType" type="tns:BillingChargeDetailsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBillingChargeDetailsType" nillable="true" type="tns:ArrayOfBillingChargeDetailsType" />
+  <xs:simpleType name="BillingChargeDetailsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OneOffPurchase">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SubscriptionProrate">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SubscriptionPayment">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillingChargeDetailsType" nillable="true" type="tns:BillingChargeDetailsType" />
+  <xs:complexType name="ArrayOfBillingChargePaymentStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BillingChargePaymentStatus" type="tns:BillingChargePaymentStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBillingChargePaymentStatus" nillable="true" type="tns:ArrayOfBillingChargePaymentStatus" />
+  <xs:simpleType name="BillingChargePaymentStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PaymentPrepared">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FailedCommunicationError">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FailedPaymentError">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Success">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BuildingPayment">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillingChargePaymentStatus" nillable="true" type="tns:BillingChargePaymentStatus" />
+  <xs:complexType name="ArrayOfBillingChargeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BillingChargeType" type="tns:BillingChargeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBillingChargeType" nillable="true" type="tns:ArrayOfBillingChargeType" />
+  <xs:simpleType name="BillingChargeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OneOff">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Adjustment">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillingChargeType" nillable="true" type="tns:BillingChargeType" />
+  <xs:complexType name="ArrayOfBillingProductCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BillingProductCategory" type="tns:BillingProductCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBillingProductCategory" nillable="true" type="tns:ArrayOfBillingProductCategory" />
+  <xs:simpleType name="BillingProductCategory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Application" />
+      <xs:enumeration value="ProjectPortfolio" />
+      <xs:enumeration value="PrivateCloud" />
+      <xs:enumeration value="Support" />
+      <xs:enumeration value="ProjectArchive" />
+      <xs:enumeration value="Template" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillingProductCategory" nillable="true" type="tns:BillingProductCategory" />
+  <xs:complexType name="ArrayOfChangeActivity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChangeActivity" type="tns:ChangeActivity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChangeActivity" nillable="true" type="tns:ArrayOfChangeActivity" />
+  <xs:complexType name="ArrayOfCoverage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Coverage" type="tns:Coverage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCoverage" nillable="true" type="tns:ArrayOfCoverage" />
+  <xs:simpleType name="Coverage">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Covered" />
+      <xs:enumeration value="NotCovered" />
+      <xs:enumeration value="All" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Coverage" nillable="true" type="tns:Coverage" />
+  <xs:complexType name="ArrayOfCustomFieldType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomFieldType" type="tns:CustomFieldType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomFieldType" nillable="true" type="tns:ArrayOfCustomFieldType" />
+  <xs:complexType name="ArrayOfExternalLinkType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExternalLinkType" type="tns:ExternalLinkType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExternalLinkType" nillable="true" type="tns:ArrayOfExternalLinkType" />
+  <xs:complexType name="ArrayOfInterests">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Interests" type="tns:Interests" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInterests" nillable="true" type="tns:ArrayOfInterests" />
+  <xs:simpleType name="Interests">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="RequirementManagement" />
+      <xs:enumeration value="RequirementGathering" />
+      <xs:enumeration value="TenderManagement" />
+      <xs:enumeration value="Sourcing" />
+      <xs:enumeration value="SupplierDeclaration" />
+      <xs:enumeration value="ProjectManagement" />
+      <xs:enumeration value="IssueAndDefectTracking" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Interests" nillable="true" type="tns:Interests" />
+  <xs:complexType name="ArrayOfIssueStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IssueStatus" type="tns:IssueStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIssueStatus" nillable="true" type="tns:ArrayOfIssueStatus" />
+  <xs:complexType name="ArrayOfLinkType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LinkType" type="tns:LinkType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLinkType" nillable="true" type="tns:ArrayOfLinkType" />
+  <xs:complexType name="ArrayOfReportFormat">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReportFormat" type="tns:ReportFormat" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReportFormat" nillable="true" type="tns:ArrayOfReportFormat" />
+  <xs:simpleType name="ReportFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none" />
+      <xs:enumeration value="doc" />
+      <xs:enumeration value="xls" />
+      <xs:enumeration value="html" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReportFormat" nillable="true" type="tns:ReportFormat" />
+  <xs:complexType name="ArrayOfRequirementMatrixType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementMatrixType" type="tns:RequirementMatrixType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementMatrixType" nillable="true" type="tns:ArrayOfRequirementMatrixType" />
+  <xs:simpleType name="RequirementMatrixType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="RequirementLink" />
+      <xs:enumeration value="CustomFieldsLink" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RequirementMatrixType" nillable="true" type="tns:RequirementMatrixType" />
+  <xs:complexType name="ArrayOfSignUpConfirmationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SignUpConfirmationResult" type="tns:SignUpConfirmationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSignUpConfirmationResult" nillable="true" type="tns:ArrayOfSignUpConfirmationResult" />
+  <xs:simpleType name="SignUpConfirmationResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ConfirmedOk" />
+      <xs:enumeration value="AlreadyConfirmed" />
+      <xs:enumeration value="UnknownCode" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SignUpConfirmationResult" nillable="true" type="tns:SignUpConfirmationResult" />
+  <xs:complexType name="ArrayOfSpecificationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpecificationType" type="tns:SpecificationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpecificationType" nillable="true" type="tns:ArrayOfSpecificationType" />
+  <xs:complexType name="ArrayOfSubmissionStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubmissionStatus" type="tns:SubmissionStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubmissionStatus" nillable="true" type="tns:ArrayOfSubmissionStatus" />
+  <xs:complexType name="ArrayOfRequirementOneObjectTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementOneObjectTypes" type="tns:RequirementOneObjectTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementOneObjectTypes" nillable="true" type="tns:ArrayOfRequirementOneObjectTypes" />
+  <xs:complexType name="ArrayOfUserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRole" type="tns:UserRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserRole" nillable="true" type="tns:ArrayOfUserRole" />
+  <xs:complexType name="ArrayOfYesNoAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="YesNoAll" type="tns:YesNoAll" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfYesNoAll" nillable="true" type="tns:ArrayOfYesNoAll" />
+</xs:schema>

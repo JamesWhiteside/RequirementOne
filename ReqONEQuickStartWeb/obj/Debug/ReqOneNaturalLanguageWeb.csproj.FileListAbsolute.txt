@@ -1,0 +1,25 @@
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguageWeb\bin\ReqOneNaturalLanguageWeb.dll.config
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguageWeb\bin\ReqOneNaturalLanguageWeb.dll
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguageWeb\bin\ReqOneNaturalLanguageWeb.pdb
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguageWeb\bin\ReqOneApiReference.dll
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguageWeb\bin\ReqOneNaturalLanguage.dll
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguageWeb\bin\ReqOneApiReference.pdb
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguageWeb\bin\ReqOneNaturalLanguage.pdb
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguageWeb\obj\Debug\ReqOneNaturalLanguageWeb.csprojResolveAssemblyReference.cache
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguageWeb\obj\Debug\ReqOneNaturalLanguageWeb.dll
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguageWeb\obj\Debug\ReqOneNaturalLanguageWeb.pdb
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneNaturalLanguageWeb\obj\Debug\ReqOneNaturalLanguageWeb.csprojResolveAssemblyReference.cache
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneNaturalLanguageWeb\bin\ReqOneNaturalLanguageWeb.dll.config
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneNaturalLanguageWeb\bin\ReqOneNaturalLanguageWeb.dll
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneNaturalLanguageWeb\bin\ReqOneNaturalLanguageWeb.pdb
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneNaturalLanguageWeb\bin\ReqOneApiReference.dll
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneNaturalLanguageWeb\bin\ReqOneApiReference.pdb
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneNaturalLanguageWeb\obj\Debug\ReqOneNaturalLanguageWeb.dll
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneNaturalLanguageWeb\obj\Debug\ReqOneNaturalLanguageWeb.pdb
+E:\Proiecte\RequirementONE Quick Start\ReqOneNaturalLanguageWeb\bin\ReqOneNaturalLanguageWeb.dll
+E:\Proiecte\RequirementONE Quick Start\ReqOneNaturalLanguageWeb\bin\ReqOneNaturalLanguageWeb.pdb
+E:\Proiecte\RequirementONE Quick Start\ReqOneNaturalLanguageWeb\bin\ReqOneApiReference.dll
+E:\Proiecte\RequirementONE Quick Start\ReqOneNaturalLanguageWeb\bin\ReqOneApiReference.pdb
+E:\Proiecte\RequirementONE Quick Start\ReqOneNaturalLanguageWeb\obj\Debug\ReqOneNaturalLanguageWeb.csprojResolveAssemblyReference.cache
+E:\Proiecte\RequirementONE Quick Start\ReqOneNaturalLanguageWeb\obj\Debug\ReqOneNaturalLanguageWeb.dll
+E:\Proiecte\RequirementONE Quick Start\ReqOneNaturalLanguageWeb\obj\Debug\ReqOneNaturalLanguageWeb.pdb

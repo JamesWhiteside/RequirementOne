@@ -1,0 +1,48 @@
+﻿body, textarea, select, input
+    {
+      font-family: "Segoe UI", "Lucida Grande", "Arial";
+      font-size: 13px;
+    }
+    select
+    {
+      width: 300px;
+    }
+    textarea
+    {
+      width: 300px;
+    }
+    td
+    {
+      padding-bottom: 4px;
+    }
+    div.searchCriteria, div.stats
+    {
+      float:left;
+    }
+    div.results
+    {
+      float:none;
+    }
+
+      .TreeTable
+      {
+          width: 111px;
+          margin-right: 20px;
+      }
+      
+
+      .auto-style1
+      {
+          width: 97px;
+      }
+
+      .auto-style2
+      {
+          width: 4px;
+      }
+      .searchButton
+      {
+      }
+      .searchButton:hover
+      {
+      }

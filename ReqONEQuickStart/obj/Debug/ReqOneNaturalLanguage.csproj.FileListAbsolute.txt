@@ -1,0 +1,5 @@
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguage\bin\Debug\ReqOneNaturalLanguage.dll
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguage\bin\Debug\ReqOneNaturalLanguage.pdb
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguage\obj\Debug\ReqOneNaturalLanguage.csprojResolveAssemblyReference.cache
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguage\obj\Debug\ReqOneNaturalLanguage.dll
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneNaturalLanguage\obj\Debug\ReqOneNaturalLanguage.pdb

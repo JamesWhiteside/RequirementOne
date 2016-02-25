@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8631720c-6878-412c-ac46-2c70db952f6c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:57154/RequirementOneApiSOAP.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RequirementOneApiSOAP12.xsd" MetadataType="Schema" ID="a59f7a40-7440-40c2-829f-b2d2c4384631" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd8" />
+    <MetadataFile FileName="RequirementOneApiSOAP121.xsd" MetadataType="Schema" ID="b3eba236-8a7f-4e56-a721-d26a0b7722d4" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd9" />
+    <MetadataFile FileName="RequirementOneApiSOAP122.xsd" MetadataType="Schema" ID="c273bd5c-4f94-4271-a8d1-6d4b451140a5" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd6" />
+    <MetadataFile FileName="RequirementOneApiSOAP123.xsd" MetadataType="Schema" ID="eadfe922-5c3a-4402-830a-75b35db4e1da" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd7" />
+    <MetadataFile FileName="RequirementOneApiSOAP.disco" MetadataType="Disco" ID="363b27ba-08a7-40ea-9994-8072703c8a0b" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?disco" />
+    <MetadataFile FileName="RequirementOneApiSOAP124.xsd" MetadataType="Schema" ID="e9491c07-9ef1-42b9-947d-8b98d791e7e2" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd5" />
+    <MetadataFile FileName="RequirementOneApiSOAP125.xsd" MetadataType="Schema" ID="89959c9f-39b1-4be3-af5b-c146a5c7bc68" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd2" />
+    <MetadataFile FileName="RequirementOneApiSOAP126.xsd" MetadataType="Schema" ID="a82c6c36-f5ef-4528-8026-b7b5966064d2" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd3" />
+    <MetadataFile FileName="RequirementOneApiSOAP127.xsd" MetadataType="Schema" ID="70707014-7d8d-423a-8aa8-89aaeb60c084" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd0" />
+    <MetadataFile FileName="RequirementOneApiSOAP128.xsd" MetadataType="Schema" ID="edcdcbcd-e4be-4d9b-8def-77b41df553b7" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd1" />
+    <MetadataFile FileName="RequirementOneApiSOAP129.xsd" MetadataType="Schema" ID="a5a1f2fd-571a-4423-90d1-061b65d64631" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd10" />
+    <MetadataFile FileName="RequirementOneApiSOAP1.wsdl" MetadataType="Wsdl" ID="6307eebb-de68-4a72-bce1-6c1aa08e76ab" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?wsdl" />
+    <MetadataFile FileName="RequirementOneApiSOAP1210.xsd" MetadataType="Schema" ID="2714360c-0916-4ea9-ab2a-585fa4af416c" SourceId="1" SourceUrl="http://localhost:57154/RequirementOneApiSOAP.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

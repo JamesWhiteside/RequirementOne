@@ -1,0 +1,1913 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ReqOne.BusinessEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ReqOne.BusinessEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://api.requirementone.com/RequirementOneApiSOAP.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://api.requirementone.com/RequirementOneApiSOAP.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+  <xs:import schemaLocation="https://api.requirementone.com/RequirementOneApiSOAP.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://api.requirementone.com/RequirementOneApiSOAP.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/ReqOne.Common" />
+  <xs:complexType name="Question">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnswerTypeDetails" nillable="true" type="tns:AnswerType" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+      <xs:element minOccurs="0" name="HelpText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsMandatory" type="xs:boolean" />
+      <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuestionnaireID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RegularExpression" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Question" nillable="true" type="tns:Question" />
+  <xs:complexType name="AnswerType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnswerTypeSelection" type="tns:AnswerTypeSelection" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="PossibleValues" nillable="true" type="tns:ArrayOfAnswerValue" />
+      <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnswerType" nillable="true" type="tns:AnswerType" />
+  <xs:simpleType name="AnswerTypeSelection">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="FreeText" />
+      <xs:enumeration value="DropDownList" />
+      <xs:enumeration value="CheckBoxList" />
+      <xs:enumeration value="UploadFile" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AnswerTypeSelection" nillable="true" type="tns:AnswerTypeSelection" />
+  <xs:complexType name="ArrayOfAnswerValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnswerValue" nillable="true" type="tns:AnswerValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnswerValue" nillable="true" type="tns:ArrayOfAnswerValue" />
+  <xs:complexType name="AnswerValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LinkedQuestionGroupId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnswerValue" nillable="true" type="tns:AnswerValue" />
+  <xs:complexType name="ArrayOfQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Question" nillable="true" type="tns:Question" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestion" nillable="true" type="tns:ArrayOfQuestion" />
+  <xs:complexType name="Answer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnswerID" type="ser:guid" />
+      <xs:element minOccurs="0" name="AnswerText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AttachmentID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="AttachmentName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="AttachmentStream" nillable="true" type="q1:Stream" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListValues" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+      <xs:element minOccurs="0" name="RequirementID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="TypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Answer" nillable="true" type="tns:Answer" />
+  <xs:complexType name="ArrayOfAnswer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Answer" nillable="true" type="tns:Answer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnswer" nillable="true" type="tns:ArrayOfAnswer" />
+  <xs:complexType name="AnswerTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Answers" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="QuestionCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ReviewColumnCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalAnswers" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnswerTable" nillable="true" type="tns:AnswerTable" />
+  <xs:complexType name="SubmissionSearchArguments">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaxRowIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="MinRowIndex" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Order" type="q3:AscDesc" />
+      <xs:element minOccurs="0" name="OrderBy" type="tns:SubmissionSearchColumns" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="QuestionnaireID" nillable="true" type="ser:guid" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Status" nillable="true" type="q4:SubmissionStatus" />
+      <xs:element minOccurs="0" name="SubmissionID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmissionSearchArguments" nillable="true" type="tns:SubmissionSearchArguments" />
+  <xs:simpleType name="SubmissionSearchColumns">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Questionnaire" />
+      <xs:enumeration value="User" />
+      <xs:enumeration value="Status" />
+      <xs:enumeration value="SubmittedDate" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubmissionSearchColumns" nillable="true" type="tns:SubmissionSearchColumns" />
+  <xs:complexType name="QuestionnaireSubmissionSearchResults">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SubmissionList" nillable="true" type="tns:ArrayOfQuestionnaireSubmission" />
+      <xs:element minOccurs="0" name="TotalResults" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionnaireSubmissionSearchResults" nillable="true" type="tns:QuestionnaireSubmissionSearchResults" />
+  <xs:complexType name="ArrayOfQuestionnaireSubmission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionnaireSubmission" nillable="true" type="tns:QuestionnaireSubmission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionnaireSubmission" nillable="true" type="tns:ArrayOfQuestionnaireSubmission" />
+  <xs:complexType name="QuestionnaireSubmission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionnaireID" type="ser:guid" />
+      <xs:element minOccurs="0" name="QuestionnaireName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Status" type="q5:SubmissionStatus" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionnaireSubmission" nillable="true" type="tns:QuestionnaireSubmission" />
+  <xs:complexType name="ArrayOfRequirementFromQuestionnaireDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementFromQuestionnaireDetails" nillable="true" type="tns:RequirementFromQuestionnaireDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementFromQuestionnaireDetails" nillable="true" type="tns:ArrayOfRequirementFromQuestionnaireDetails" />
+  <xs:complexType name="RequirementFromQuestionnaireDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Requirement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Answer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndIndex" type="xs:int" />
+          <xs:element minOccurs="0" name="RequirementFromQuestionnaireID" type="xs:int" />
+          <xs:element minOccurs="0" name="StartIndex" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequirementFromQuestionnaireDetails" nillable="true" type="tns:RequirementFromQuestionnaireDetails" />
+  <xs:complexType name="Requirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CustomIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IntermediateChange" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RequirementFromQuestionnaire" nillable="true" type="tns:RequirementFromQuestionnaire" />
+      <xs:element minOccurs="0" name="RequirementID" type="ser:guid" />
+      <xs:element minOccurs="0" name="SpecificationID" type="ser:guid" />
+      <xs:element minOccurs="0" name="SubscriptionID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="TreeID" type="xs:int" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Requirement" nillable="true" type="tns:Requirement" />
+  <xs:complexType name="RequirementFromQuestionnaire">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ObjectFromQuestionnaire">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RequirementID" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequirementFromQuestionnaire" nillable="true" type="tns:RequirementFromQuestionnaire" />
+  <xs:complexType name="ObjectFromQuestionnaire">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnswerID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="TextIndexEnd" type="xs:int" />
+      <xs:element minOccurs="0" name="TextIndexStart" type="xs:int" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObjectFromQuestionnaire" nillable="true" type="tns:ObjectFromQuestionnaire" />
+  <xs:complexType name="ArrayOfRequirementFromQuestionnaire">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementFromQuestionnaire" nillable="true" type="tns:RequirementFromQuestionnaire" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementFromQuestionnaire" nillable="true" type="tns:ArrayOfRequirementFromQuestionnaire" />
+  <xs:complexType name="ArrayOfQuestionnaireStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionnaireStatisticsBasic" nillable="true" type="tns:QuestionnaireStatisticsBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionnaireStatisticsBasic" nillable="true" type="tns:ArrayOfQuestionnaireStatisticsBasic" />
+  <xs:complexType name="QuestionnaireStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="QuestionnaireCount" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionnaireGroupId" type="ser:guid" />
+      <xs:element minOccurs="0" name="QuestionnaireGroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ResponseCountLast7Days" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionnaireStatisticsBasic" nillable="true" type="tns:QuestionnaireStatisticsBasic" />
+  <xs:complexType name="ArrayOfTenderStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TenderStatisticsBasic" nillable="true" type="tns:TenderStatisticsBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTenderStatisticsBasic" nillable="true" type="tns:ArrayOfTenderStatisticsBasic" />
+  <xs:complexType name="TenderStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InvitedUsersCount" type="xs:int" />
+      <xs:element minOccurs="0" name="IterationCount" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionnaireCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RespondingUsersCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RespondingUsersLast7Days" type="xs:int" />
+      <xs:element minOccurs="0" name="TenderID" type="ser:guid" />
+      <xs:element minOccurs="0" name="TenderName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TenderStatisticsBasic" nillable="true" type="tns:TenderStatisticsBasic" />
+  <xs:complexType name="ArrayOfSurveyStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SurveyStatisticsBasic" nillable="true" type="tns:SurveyStatisticsBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSurveyStatisticsBasic" nillable="true" type="tns:ArrayOfSurveyStatisticsBasic" />
+  <xs:complexType name="SurveyStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllResponsesCount" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionnaireId" type="ser:guid" />
+      <xs:element minOccurs="0" name="QuestionnaireName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponsesClosedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ResponsesLast7DaysCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ResponsesNotParsedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ResponsesPartiallyParsedCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SurveyStatisticsBasic" nillable="true" type="tns:SurveyStatisticsBasic" />
+  <xs:complexType name="ArrayOfIterationStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IterationStatisticsBasic" nillable="true" type="tns:IterationStatisticsBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIterationStatisticsBasic" nillable="true" type="tns:ArrayOfIterationStatisticsBasic" />
+  <xs:complexType name="IterationStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InvitedUsers" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionnaireCount" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionnaireGroupId" type="ser:guid" />
+      <xs:element minOccurs="0" name="QuestionnaireGroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RespondingUsers" type="xs:int" />
+      <xs:element minOccurs="0" name="RespondingUsersFinal" type="xs:int" />
+      <xs:element minOccurs="0" name="RespondingUsersFinalLast7Days" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IterationStatisticsBasic" nillable="true" type="tns:IterationStatisticsBasic" />
+  <xs:complexType name="ArrayOfIssueFromQuestDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IssueFromQuestDetails" nillable="true" type="tns:IssueFromQuestDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIssueFromQuestDetails" nillable="true" type="tns:ArrayOfIssueFromQuestDetails" />
+  <xs:complexType name="IssueFromQuestDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Issue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Answer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndIndex" type="xs:int" />
+          <xs:element minOccurs="0" name="StartIndex" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IssueFromQuestDetails" nillable="true" type="tns:IssueFromQuestDetails" />
+  <xs:complexType name="Issue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssignedTo" type="ser:guid" />
+      <xs:element minOccurs="0" name="AssignedToUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedByUserName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CustomFieldDataAsStrings" nillable="true" type="q6:ArrayOfKeyValueOfintstring" />
+      <xs:element minOccurs="0" name="CustomID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="IssueFromQuestionnaire" nillable="true" type="tns:IssueFromQuestionnaire" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NotifyUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Status" type="q7:IssueStatus" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="UpdatedByUserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Issue" nillable="true" type="tns:Issue" />
+  <xs:complexType name="IssueFromQuestionnaire">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ObjectFromQuestionnaire">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IssueID" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IssueFromQuestionnaire" nillable="true" type="tns:IssueFromQuestionnaire" />
+  <xs:complexType name="ArrayOfIssueFromQuestionnaire">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IssueFromQuestionnaire" nillable="true" type="tns:IssueFromQuestionnaire" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIssueFromQuestionnaire" nillable="true" type="tns:ArrayOfIssueFromQuestionnaire" />
+  <xs:complexType name="ArrayOfTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Template" nillable="true" type="tns:Template" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTemplate" nillable="true" type="tns:ArrayOfTemplate" />
+  <xs:complexType name="Template">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ObjectType" nillable="true" type="q8:RequirementOneObjectTypes" />
+      <xs:element minOccurs="0" name="TemplateID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Template" nillable="true" type="tns:Template" />
+  <xs:complexType name="ArrayOfStorageItemInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StorageItemInfo" nillable="true" type="tns:StorageItemInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStorageItemInfo" nillable="true" type="tns:ArrayOfStorageItemInfo" />
+  <xs:complexType name="StorageItemInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsFolder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SizeInBytes" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StorageItemInfo" nillable="true" type="tns:StorageItemInfo" />
+  <xs:complexType name="ArrayOfTimeRegistration">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TimeRegistration" nillable="true" type="tns:TimeRegistration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTimeRegistration" nillable="true" type="tns:ArrayOfTimeRegistration" />
+  <xs:complexType name="TimeRegistration">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DayTotalTime" type="xs:double" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="PlanID" type="ser:guid" />
+      <xs:element minOccurs="0" name="PlanName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectUserID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RateID" type="xs:int" />
+      <xs:element minOccurs="0" name="RateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Task" nillable="true" type="tns:Task" />
+      <xs:element minOccurs="0" name="TaskDetails" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaskID" type="ser:guid" />
+      <xs:element minOccurs="0" name="TaskName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Time" type="xs:double" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserInitials" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimeRegistration" nillable="true" type="tns:TimeRegistration" />
+  <xs:complexType name="Task">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Actual" type="xs:double" />
+      <xs:element minOccurs="0" name="BillingCodeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BillingCodeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Children" nillable="true" type="tns:ArrayOfTask" />
+      <xs:element minOccurs="0" name="Completed" type="xs:int" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedByName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Estimate" type="xs:int" />
+      <xs:element minOccurs="0" name="HasChildren" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCompleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMilestone" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NotificationMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NotifyUsers" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ParentID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="PlanID" type="ser:guid" />
+      <xs:element minOccurs="0" name="PlanName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remaining" type="xs:int" />
+      <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TaskID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Task" nillable="true" type="tns:Task" />
+  <xs:complexType name="ArrayOfTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Task" nillable="true" type="tns:Task" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTask" nillable="true" type="tns:ArrayOfTask" />
+  <xs:complexType name="ArrayOfPlanStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PlanStatistics" nillable="true" type="tns:PlanStatistics" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlanStatistics" nillable="true" type="tns:ArrayOfPlanStatistics" />
+  <xs:complexType name="PlanStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OverdueTaskCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PercentCompleted" type="xs:double" />
+      <xs:element minOccurs="0" name="PlanID" type="ser:guid" />
+      <xs:element minOccurs="0" name="PlanName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeRegistered" type="xs:double" />
+      <xs:element minOccurs="0" name="UserCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlanStatistics" nillable="true" type="tns:PlanStatistics" />
+  <xs:complexType name="ArrayOfChangeHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChangeHistory" nillable="true" type="tns:ChangeHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChangeHistory" nillable="true" type="tns:ArrayOfChangeHistory" />
+  <xs:complexType name="ChangeHistory">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Activity" type="q9:ChangeActivity" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedByUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="DataCategory" type="q10:ObjectFields" />
+      <xs:element minOccurs="0" name="DataCategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HistoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="ObjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ObjectName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ObjectType" type="q11:RequirementOneObjectTypes" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="ValueAfter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValueBefore" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChangeHistory" nillable="true" type="tns:ChangeHistory" />
+  <xs:complexType name="Tender">
+    <xs:sequence>
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="AppStatus" type="q12:AppStatus" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TenderID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tender" nillable="true" type="tns:Tender" />
+  <xs:complexType name="ArrayOfTender">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tender" nillable="true" type="tns:Tender" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTender" nillable="true" type="tns:ArrayOfTender" />
+  <xs:complexType name="ArrayOfQuestionnaireGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionnaireGroup" nillable="true" type="tns:QuestionnaireGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionnaireGroup" nillable="true" type="tns:ArrayOfQuestionnaireGroup" />
+  <xs:complexType name="QuestionnaireGroup">
+    <xs:sequence>
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="AppStatus" type="q13:AppStatus" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TenderID" type="ser:guid" />
+      <xs:element minOccurs="0" name="TenderName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Type" type="q14:TenderType" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionnaireGroup" nillable="true" type="tns:QuestionnaireGroup" />
+  <xs:complexType name="Questionnaire">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowAnonymous" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowMultipleSubmissions" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AnonymousKey" nillable="true" type="xs:string" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="AppStatus" type="q15:AppStatus" />
+      <xs:element minOccurs="0" name="ConfirmationMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CopySpecificationID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CutOffDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DefaultTargetSpecificationID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="DefaultTargetTableOfContentsID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ImpersonatorID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsRequirementBased" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ItemsPerPage" type="xs:int" />
+      <xs:element minOccurs="0" name="IterationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalSpecificationID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuestionnaireID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RequirementGroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="TenderID" type="ser:guid" />
+      <xs:element minOccurs="0" name="TenderName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="TenderType" type="q16:TenderType" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Questionnaire" nillable="true" type="tns:Questionnaire" />
+  <xs:complexType name="ArrayOfQuestionnaire">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Questionnaire" nillable="true" type="tns:Questionnaire" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionnaire" nillable="true" type="tns:ArrayOfQuestionnaire" />
+  <xs:complexType name="ArrayOfObjectAttachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ObjectAttachment" nillable="true" type="tns:ObjectAttachment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfObjectAttachment" nillable="true" type="tns:ArrayOfObjectAttachment" />
+  <xs:complexType name="ObjectAttachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectID" type="ser:guid" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ObjectType" type="q17:RequirementOneObjectTypes" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObjectAttachment" nillable="true" type="tns:ObjectAttachment" />
+  <xs:complexType name="QuestionnaireRequirementField">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttachmentCategoryID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CustomFieldID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuestionnaireID" type="ser:guid" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="RequirementField" type="q18:ObjectFields" />
+      <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionnaireRequirementField" nillable="true" type="tns:QuestionnaireRequirementField" />
+  <xs:complexType name="ArrayOfQuestionnaireRequirementField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionnaireRequirementField" nillable="true" type="tns:QuestionnaireRequirementField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionnaireRequirementField" nillable="true" type="tns:ArrayOfQuestionnaireRequirementField" />
+  <xs:complexType name="QuestionnaireRequirementSearchArguments">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Answer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuestionnaireID" type="ser:guid" />
+      <xs:element minOccurs="0" name="QuestionnaireUserId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ReviewColumnDataId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionnaireRequirementSearchArguments" nillable="true" type="tns:QuestionnaireRequirementSearchArguments" />
+  <xs:complexType name="CustomFieldDefinition">
+    <xs:sequence>
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="AppStatus" type="q19:AppStatus" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="DefinitionID" type="xs:int" />
+      <xs:element minOccurs="0" name="HelpText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MultiLine" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MultipleSelect" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ObjectType" type="q20:RequirementOneObjectTypes" />
+      <xs:element minOccurs="0" name="PossibleValues" nillable="true" type="tns:ArrayOfCustomFieldData" />
+      <xs:element minOccurs="0" name="RegularExpression" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Scope" nillable="true" type="tns:CustomFieldScope" />
+      <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Type" type="q21:CustomFieldType" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomFieldDefinition" nillable="true" type="tns:CustomFieldDefinition" />
+  <xs:complexType name="ArrayOfCustomFieldData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomFieldData" nillable="true" type="tns:CustomFieldData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomFieldData" nillable="true" type="tns:ArrayOfCustomFieldData" />
+  <xs:complexType name="CustomFieldData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="DataID" type="xs:int" />
+      <xs:element minOccurs="0" name="DefinitionID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Type" type="q22:CustomFieldType" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomFieldData" nillable="true" type="tns:CustomFieldData" />
+  <xs:simpleType name="CustomFieldScope">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="SpecificationsInProject" />
+      <xs:enumeration value="Specification" />
+      <xs:enumeration value="Requirements" />
+      <xs:enumeration value="Issues" />
+      <xs:enumeration value="Questionnaire" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CustomFieldScope" nillable="true" type="tns:CustomFieldScope" />
+  <xs:complexType name="ArrayOfCustomFieldDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomFieldDefinition" nillable="true" type="tns:CustomFieldDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomFieldDefinition" nillable="true" type="tns:ArrayOfCustomFieldDefinition" />
+  <xs:complexType name="ArrayOfQuestionnaireRequirementCustomData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionnaireRequirementCustomData" nillable="true" type="tns:QuestionnaireRequirementCustomData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionnaireRequirementCustomData" nillable="true" type="tns:ArrayOfQuestionnaireRequirementCustomData" />
+  <xs:complexType name="QuestionnaireRequirementCustomData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomFieldData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CopyRequirementID" type="ser:guid" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="RequirementOneUserID" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="QuestionnaireRequirementCustomData" nillable="true" type="tns:QuestionnaireRequirementCustomData" />
+  <xs:complexType name="QuestionGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsRequirementData" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuestionnaireID" type="ser:guid" />
+      <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionGroup" nillable="true" type="tns:QuestionGroup" />
+  <xs:complexType name="ArrayOfQuestionGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionGroup" nillable="true" type="tns:QuestionGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionGroup" nillable="true" type="tns:ArrayOfQuestionGroup" />
+  <xs:complexType name="BillingCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlanID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BillingCode" nillable="true" type="tns:BillingCode" />
+  <xs:complexType name="ArrayOfBillingCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BillingCode" nillable="true" type="tns:BillingCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBillingCode" nillable="true" type="tns:ArrayOfBillingCode" />
+  <xs:complexType name="ArrayOfCurrency">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Currency" nillable="true" type="tns:Currency" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCurrency" nillable="true" type="tns:ArrayOfCurrency" />
+  <xs:complexType name="Currency">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrencyID" type="xs:int" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Currency" nillable="true" type="tns:Currency" />
+  <xs:complexType name="Plan">
+    <xs:sequence>
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="AppStatus" type="q23:AppStatus" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnableTimeRegistrations" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsArchived" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlanID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="RootTaskID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Plan" nillable="true" type="tns:Plan" />
+  <xs:complexType name="ArrayOfPlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Plan" nillable="true" type="tns:Plan" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlan" nillable="true" type="tns:ArrayOfPlan" />
+  <xs:complexType name="Rate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:int" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CurrencyID" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrencyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlanID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RateID" type="xs:int" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Rate" nillable="true" type="tns:Rate" />
+  <xs:complexType name="ArrayOfRate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Rate" nillable="true" type="tns:Rate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRate" nillable="true" type="tns:ArrayOfRate" />
+  <xs:complexType name="TaskDependency">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChildID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ChildName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ParentID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ParentName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskDependency" nillable="true" type="tns:TaskDependency" />
+  <xs:complexType name="ArrayOfTaskDependency">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskDependency" nillable="true" type="tns:TaskDependency" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskDependency" nillable="true" type="tns:ArrayOfTaskDependency" />
+  <xs:complexType name="TaskLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ObjectID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ObjectType" type="q24:RequirementOneObjectTypes" />
+      <xs:element minOccurs="0" name="ObjectTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaskID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskLink" nillable="true" type="tns:TaskLink" />
+  <xs:complexType name="ArrayOfTaskLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskLink" nillable="true" type="tns:TaskLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskLink" nillable="true" type="tns:ArrayOfTaskLink" />
+  <xs:complexType name="ArrayOfTaskUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskUser" nillable="true" type="tns:TaskUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskUser" nillable="true" type="tns:ArrayOfTaskUser" />
+  <xs:complexType name="TaskUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Task" nillable="true" type="tns:Task" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskUser" nillable="true" type="tns:TaskUser" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AimId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AllowMaintenanceNotifications" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowNewsletter" type="xs:boolean" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Culture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Employees" type="xs:int" />
+      <xs:element minOccurs="0" name="EmployeesText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacebookId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IcqId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndustryId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IndustryName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="InterestIDs" nillable="true" type="q25:ArrayOfint" />
+      <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="InterestNames" nillable="true" type="q26:ArrayOfstring" />
+      <xs:element minOccurs="0" name="IsPrimaryProfile" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPublic" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkedInId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsnId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PictureSize" type="xs:int" />
+      <xs:element minOccurs="0" name="ProfessionalSummary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectUserID" type="ser:guid" />
+      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Role" nillable="true" type="q27:UserRole" />
+      <xs:element minOccurs="0" name="ScreenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignUpData" nillable="true" type="tns:SignUpData" />
+      <xs:element minOccurs="0" name="SkypeId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubscribeID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="TimeZoneName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Timezone" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TimezoneID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserGroupID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YahooId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="SignUpData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConfirmationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerHappiness" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastLoginDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LoginCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PartnerID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignUpDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignUpData" nillable="true" type="tns:SignUpData" />
+  <xs:complexType name="TimeRegSearchCriteria">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AspnetUserID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="BillingCodeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateStart" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MaxRowIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="MinRowIndex" type="xs:int" />
+      <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PlanIDs" nillable="true" type="q28:ArrayOfguid" />
+      <xs:element minOccurs="0" name="RateID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TaskID" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimeRegSearchCriteria" nillable="true" type="tns:TimeRegSearchCriteria" />
+  <xs:complexType name="TimeRegistrationSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TimeRegistrations" nillable="true" type="tns:ArrayOfTimeRegistration" />
+      <xs:element minOccurs="0" name="TotalResults" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimeRegistrationSearchResult" nillable="true" type="tns:TimeRegistrationSearchResult" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="UserGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Children" nillable="true" type="tns:ArrayOfUserGroup" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserGroupID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserGroup" nillable="true" type="tns:UserGroup" />
+  <xs:complexType name="ArrayOfUserGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserGroup" nillable="true" type="tns:UserGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserGroup" nillable="true" type="tns:ArrayOfUserGroup" />
+  <xs:complexType name="ArrayOfIssue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Issue" nillable="true" type="tns:Issue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIssue" nillable="true" type="tns:ArrayOfIssue" />
+  <xs:complexType name="ArrayOfObjectCustomFieldData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ObjectCustomFieldData" nillable="true" type="tns:ObjectCustomFieldData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfObjectCustomFieldData" nillable="true" type="tns:ArrayOfObjectCustomFieldData" />
+  <xs:complexType name="ObjectCustomFieldData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomFieldData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DefinitionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="ObjectID" nillable="true" type="xs:string" />
+          <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ObjectType" type="q29:RequirementOneObjectTypes" />
+          <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+          <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectCustomFieldData" nillable="true" type="tns:ObjectCustomFieldData" />
+  <xs:complexType name="ArrayOfObjectNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ObjectNote" nillable="true" type="tns:ObjectNote" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfObjectNote" nillable="true" type="tns:ArrayOfObjectNote" />
+  <xs:complexType name="ObjectNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedByName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoteID" type="xs:int" />
+      <xs:element minOccurs="0" name="ObjectID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ObjectType" type="q30:RequirementOneObjectTypes" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObjectNote" nillable="true" type="tns:ObjectNote" />
+  <xs:complexType name="IssueSearchArguments">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssignedTo" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CreatedEnd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedStart" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CustomData" nillable="true" type="q31:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="CustomID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataToGet" nillable="true" type="tns:RequirementDataFilter" />
+      <xs:element minOccurs="0" name="FreeText" nillable="true" type="xs:string" />
+      <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Groups" nillable="true" type="q32:ArrayOfguid" />
+      <xs:element minOccurs="0" name="MaxRowIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="MinRowIndex" type="xs:int" />
+      <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Projects" nillable="true" type="q33:ArrayOfguid" />
+      <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="StaticFields" nillable="true" type="q34:ArrayOfObjectFields" />
+      <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Status" nillable="true" type="q35:IssueStatus" />
+      <xs:element minOccurs="0" name="UpdatedEnd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedStart" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IssueSearchArguments" nillable="true" type="tns:IssueSearchArguments" />
+  <xs:complexType name="RequirementDataFilter">
+    <xs:sequence>
+      <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AttachmentCategoriesIDs" nillable="true" type="q36:ArrayOfint" />
+      <xs:element minOccurs="0" name="AttachmentCount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ChangeHistory" type="xs:boolean" />
+      <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CustomFieldsIDs" nillable="true" type="q37:ArrayOfint" />
+      <xs:element minOccurs="0" name="CustomID" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Details" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FeedbackCount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LinkCount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NoteCount" type="xs:boolean" />
+      <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="NotesCategoriesIDs" nillable="true" type="q38:ArrayOfint" />
+      <xs:element minOccurs="0" name="RequirementLinks" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Timestamps" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Users" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementDataFilter" nillable="true" type="tns:RequirementDataFilter" />
+  <xs:complexType name="IssueSearchResults">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Issues" nillable="true" type="tns:ArrayOfIssue" />
+      <xs:element minOccurs="0" name="TotalResults" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IssueSearchResults" nillable="true" type="tns:IssueSearchResults" />
+  <xs:complexType name="IssueRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IssueID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RequirementID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IssueRequirement" nillable="true" type="tns:IssueRequirement" />
+  <xs:complexType name="ArrayOfRequirementDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementDetails" nillable="true" type="tns:RequirementDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementDetails" nillable="true" type="tns:ArrayOfRequirementDetails" />
+  <xs:complexType name="RequirementDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Requirement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AttachmentCount" type="xs:int" />
+          <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Attachments" nillable="true" type="q39:ArrayOfKeyValueOfintArrayOfRequirementAttachmentLXxlAbSl" />
+          <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AttachmentsAsStrings" nillable="true" type="q40:ArrayOfKeyValueOfintstring" />
+          <xs:element minOccurs="0" name="ChangeHistory" nillable="true" type="tns:ArrayOfChangeHistory" />
+          <xs:element minOccurs="0" name="ChangeHistoryAsString" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedByName" nillable="true" type="xs:string" />
+          <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CustomFieldDataAsStrings" nillable="true" type="q41:ArrayOfKeyValueOfintstring" />
+          <xs:element minOccurs="0" name="FeedbackCount" type="xs:int" />
+          <xs:element minOccurs="0" name="GlobalSortOrder" type="xs:int" />
+          <xs:element minOccurs="0" name="IssueID" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="LinkCount" type="xs:int" />
+          <xs:element minOccurs="0" name="NoteCount" type="xs:int" />
+          <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Notes" nillable="true" type="q42:ArrayOfKeyValueOfintArrayOfRequirementNoteLXxlAbSl" />
+          <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="NotesAsStrings" nillable="true" type="q43:ArrayOfKeyValueOfintstring" />
+          <xs:element minOccurs="0" name="OneNote" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OriginalRequirementID" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequirementLinks" nillable="true" type="tns:ArrayOfRequirementLink" />
+          <xs:element minOccurs="0" name="RequirementLinksAsString" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+          <xs:element minOccurs="0" name="SpecificationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TreeDetails" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TreeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TreeParentID" type="xs:int" />
+          <xs:element minOccurs="0" name="TreePath" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedByName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUser" />
+          <xs:element minOccurs="0" name="UsersAsString" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequirementDetails" nillable="true" type="tns:RequirementDetails" />
+  <xs:complexType name="ArrayOfRequirementAttachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementAttachment" nillable="true" type="tns:RequirementAttachment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementAttachment" nillable="true" type="tns:ArrayOfRequirementAttachment" />
+  <xs:complexType name="RequirementAttachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttachmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequirementID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementAttachment" nillable="true" type="tns:RequirementAttachment" />
+  <xs:complexType name="ArrayOfRequirementNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementNote" nillable="true" type="tns:RequirementNote" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementNote" nillable="true" type="tns:ArrayOfRequirementNote" />
+  <xs:complexType name="RequirementNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoteID" type="xs:int" />
+      <xs:element minOccurs="0" name="RequirementID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementNote" nillable="true" type="tns:RequirementNote" />
+  <xs:complexType name="ArrayOfRequirementLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementLink" nillable="true" type="tns:RequirementLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementLink" nillable="true" type="tns:ArrayOfRequirementLink" />
+  <xs:complexType name="RequirementLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="CustomID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Requirement1" type="ser:guid" />
+      <xs:element minOccurs="0" name="Requirement2" type="ser:guid" />
+      <xs:element minOccurs="0" name="RequirementName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SpecificationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TreeName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Type" type="q44:LinkType" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementLink" nillable="true" type="tns:RequirementLink" />
+  <xs:complexType name="ArrayOfIssueSearchFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IssueSearchFilter" nillable="true" type="tns:IssueSearchFilter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIssueSearchFilter" nillable="true" type="tns:ArrayOfIssueSearchFilter" />
+  <xs:complexType name="IssueSearchFilter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IssueSearchArguments" nillable="true" type="tns:IssueSearchArguments" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IssueSearchFilter" nillable="true" type="tns:IssueSearchFilter" />
+  <xs:complexType name="SearchFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchFilter" nillable="true" type="tns:SearchFilter" />
+  <xs:complexType name="IssueGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IssueGroup" nillable="true" type="tns:IssueGroup" />
+  <xs:complexType name="ArrayOfIssueGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IssueGroup" nillable="true" type="tns:IssueGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIssueGroup" nillable="true" type="tns:ArrayOfIssueGroup" />
+  <xs:complexType name="ArrayOfIssueStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IssueStatisticsBasic" nillable="true" type="tns:IssueStatisticsBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIssueStatisticsBasic" nillable="true" type="tns:ArrayOfIssueStatisticsBasic" />
+  <xs:complexType name="IssueStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveIssueCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ClosedIssueCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ClosedNoReproIssueCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedLast7DaysIssueCount" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupId" type="ser:guid" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResolvedFixedIssueCount" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedLast7DaysIssueCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IssueStatisticsBasic" nillable="true" type="tns:IssueStatisticsBasic" />
+  <xs:complexType name="ArrayOfRequirementCustomFieldData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementCustomFieldData" nillable="true" type="tns:RequirementCustomFieldData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementCustomFieldData" nillable="true" type="tns:ArrayOfRequirementCustomFieldData" />
+  <xs:complexType name="RequirementCustomFieldData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomFieldData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DefinitionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+          <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequirementID" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="Scope" type="tns:CustomFieldScope" />
+          <xs:element minOccurs="0" name="SpecificationID" nillable="true" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequirementCustomFieldData" nillable="true" type="tns:RequirementCustomFieldData" />
+  <xs:complexType name="RequirementCopyArguments">
+    <xs:sequence>
+      <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AttachmentCategoriesToCopy" nillable="true" type="q45:ArrayOfint" />
+      <xs:element minOccurs="0" name="CopyAllProperties" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CopyCustomFieldData" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CopyDetails" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CopyExternalLinks" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CopyName" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DestinationSpecificationID" type="ser:guid" />
+      <xs:element minOccurs="0" name="DestinationTableOfContentsID" type="xs:int" />
+      <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="NoteCategoriesToCopy" nillable="true" type="q46:ArrayOfint" />
+      <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Requirements" nillable="true" type="q47:ArrayOfguid" />
+      <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TableOfContentsMap" nillable="true" type="q48:ArrayOfKeyValueOfintint" />
+      <xs:element minOccurs="0" name="UseOneDestinationCategory" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementCopyArguments" nillable="true" type="tns:RequirementCopyArguments" />
+  <xs:complexType name="ArrayOfRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Requirement" nillable="true" type="tns:Requirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirement" nillable="true" type="tns:ArrayOfRequirement" />
+  <xs:complexType name="ArrayOfSpecification">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Specification" nillable="true" type="tns:Specification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpecification" nillable="true" type="tns:ArrayOfSpecification" />
+  <xs:complexType name="Specification">
+    <xs:sequence>
+      <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="AppStatus" type="q49:AppStatus" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LogoFileSize" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SpecificationID" type="ser:guid" />
+      <xs:element minOccurs="0" name="TreeRootID" type="xs:int" />
+      <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Type" type="q50:SpecificationType" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Specification" nillable="true" type="tns:Specification" />
+  <xs:complexType name="RequirementSearchArguments">
+    <xs:sequence>
+      <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="AppStatus" type="q51:AppStatus" />
+      <xs:element xmlns:q52="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CreatedBy" nillable="true" type="q52:ArrayOfguid" />
+      <xs:element minOccurs="0" name="DataToGet" nillable="true" type="tns:RequirementDataFilter" />
+      <xs:element minOccurs="0" name="FreeText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxCreatedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MaxRowIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxUpdatedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MinCreatedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MinRowIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="MinUpdatedDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Projects" nillable="true" type="q53:ArrayOfguid" />
+      <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RequirementsToGet" nillable="true" type="q54:ArrayOfguid" />
+      <xs:element minOccurs="0" name="SortFields" nillable="true" type="tns:ArrayOfRequirementSortCriterion" />
+      <xs:element minOccurs="0" name="Specifications" nillable="true" type="tns:ArrayOfSpecificationSearchArguments" />
+      <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="StaticFields" nillable="true" type="q55:ArrayOfObjectFields" />
+      <xs:element minOccurs="0" name="TableOfContentsName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UpdatedBy" nillable="true" type="q56:ArrayOfguid" />
+      <xs:element xmlns:q57="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Users" nillable="true" type="q57:ArrayOfguid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementSearchArguments" nillable="true" type="tns:RequirementSearchArguments" />
+  <xs:complexType name="ArrayOfRequirementSortCriterion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementSortCriterion" nillable="true" type="tns:RequirementSortCriterion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementSortCriterion" nillable="true" type="tns:ArrayOfRequirementSortCriterion" />
+  <xs:complexType name="RequirementSortCriterion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomFieldDefinitionID" type="xs:int" />
+      <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Field" type="q58:RequirementSearchFields" />
+      <xs:element minOccurs="0" name="NoteCategory" type="xs:int" />
+      <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Order" type="q59:AscDesc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementSortCriterion" nillable="true" type="tns:RequirementSortCriterion" />
+  <xs:complexType name="ArrayOfSpecificationSearchArguments">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpecificationSearchArguments" nillable="true" type="tns:SpecificationSearchArguments" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpecificationSearchArguments" nillable="true" type="tns:ArrayOfSpecificationSearchArguments" />
+  <xs:complexType name="SpecificationSearchArguments">
+    <xs:sequence>
+      <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CustomValues" nillable="true" type="q60:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="Recursive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SpecificationID" type="ser:guid" />
+      <xs:element minOccurs="0" name="TableOfContentsNodeID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpecificationSearchArguments" nillable="true" type="tns:SpecificationSearchArguments" />
+  <xs:complexType name="RequirementSearchResults">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Requirements" nillable="true" type="tns:ArrayOfRequirementDetails" />
+      <xs:element minOccurs="0" name="TotalResults" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementSearchResults" nillable="true" type="tns:RequirementSearchResults" />
+  <xs:complexType name="ArrayOfSpecificationsStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpecificationsStatisticsBasic" nillable="true" type="tns:SpecificationsStatisticsBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpecificationsStatisticsBasic" nillable="true" type="tns:ArrayOfSpecificationsStatisticsBasic" />
+  <xs:complexType name="SpecificationsStatisticsBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RecordsCreatedLast7Days" type="xs:int" />
+      <xs:element minOccurs="0" name="RecordsTotal" type="xs:int" />
+      <xs:element minOccurs="0" name="RecordsUpdatedLast7Days" type="xs:int" />
+      <xs:element minOccurs="0" name="SpecificationID" type="ser:guid" />
+      <xs:element minOccurs="0" name="SpecificationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpecificationsStatisticsBasic" nillable="true" type="tns:SpecificationsStatisticsBasic" />
+  <xs:complexType name="RequirementLinkMatrixSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColumnMaxIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="ColumnMinIndex" type="xs:int" />
+      <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Coverage" type="q61:Coverage" />
+      <xs:element minOccurs="0" name="LinkSpecificationID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="RowMaxIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="RowMinIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="SpecificationID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementLinkMatrixSettings" nillable="true" type="tns:RequirementLinkMatrixSettings" />
+  <xs:complexType name="RequirementLinkMatrix">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Matrix" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TotalColumns" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalRows" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementLinkMatrix" nillable="true" type="tns:RequirementLinkMatrix" />
+  <xs:complexType name="RequirementCustomDataMatrixSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColumnMaxIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="ColumnMinIndex" type="xs:int" />
+      <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Coverage" type="q62:Coverage" />
+      <xs:element minOccurs="0" name="CustomDefinitionID" type="xs:int" />
+      <xs:element minOccurs="0" name="RowMaxIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="RowMinIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="SpecificationID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementCustomDataMatrixSettings" nillable="true" type="tns:RequirementCustomDataMatrixSettings" />
+  <xs:complexType name="RequirementCustomDataMatrix">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Matrix" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TotalColumns" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalRows" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementCustomDataMatrix" nillable="true" type="tns:RequirementCustomDataMatrix" />
+  <xs:complexType name="ArrayOfProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Project" nillable="true" type="tns:Project" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProject" nillable="true" type="tns:ArrayOfProject" />
+  <xs:complexType name="Project">
+    <xs:sequence>
+      <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="AppStatus" type="q63:AppStatus" />
+      <xs:element minOccurs="0" name="BrandingColor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LogoFileSize" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserGroupsRootId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Project" nillable="true" type="tns:Project" />
+  <xs:simpleType name="SearchCategories">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Specifications">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Issues">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Plan">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Users">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Feedback">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Tender">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="All">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">63</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="SearchCategories" nillable="true" type="tns:SearchCategories" />
+  <xs:complexType name="SearchResults">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnswerUsers" nillable="true" type="tns:ArrayOfUser" />
+      <xs:element minOccurs="0" name="Answers" nillable="true" type="tns:ArrayOfAnswer" />
+      <xs:element minOccurs="0" name="IssueAttachments" nillable="true" type="tns:ArrayOfObjectAttachment" />
+      <xs:element minOccurs="0" name="IssueCustomData" nillable="true" type="tns:ArrayOfObjectCustomFieldData" />
+      <xs:element minOccurs="0" name="IssueNotes" nillable="true" type="tns:ArrayOfObjectNote" />
+      <xs:element minOccurs="0" name="IssueSearchFilters" nillable="true" type="tns:ArrayOfIssueSearchFilter" />
+      <xs:element minOccurs="0" name="IssueUsers" nillable="true" type="tns:ArrayOfUser" />
+      <xs:element minOccurs="0" name="Issues" nillable="true" type="tns:ArrayOfIssue" />
+      <xs:element minOccurs="0" name="Iterations" nillable="true" type="tns:ArrayOfQuestionnaireGroup" />
+      <xs:element minOccurs="0" name="Questionnaires" nillable="true" type="tns:ArrayOfQuestionnaire" />
+      <xs:element minOccurs="0" name="Questions" nillable="true" type="tns:ArrayOfQuestion" />
+      <xs:element minOccurs="0" name="RequirementAttachments" nillable="true" type="tns:ArrayOfRequirementAttachment" />
+      <xs:element minOccurs="0" name="RequirementCustomData" nillable="true" type="tns:ArrayOfRequirementCustomFieldData" />
+      <xs:element minOccurs="0" name="RequirementSearchFilters" nillable="true" type="tns:ArrayOfRequirementSearchFilter" />
+      <xs:element minOccurs="0" name="Requirements" nillable="true" type="tns:ArrayOfRequirementDetails" />
+      <xs:element minOccurs="0" name="RequirementsWithNotes" nillable="true" type="tns:ArrayOfRequirementDetails" />
+      <xs:element minOccurs="0" name="Specifications" nillable="true" type="tns:ArrayOfSpecification" />
+      <xs:element minOccurs="0" name="TableOfContentsForRequirements" nillable="true" type="tns:ArrayOfTreeNode" />
+      <xs:element minOccurs="0" name="TaskUsers" nillable="true" type="tns:ArrayOfUser" />
+      <xs:element minOccurs="0" name="Tasks" nillable="true" type="tns:ArrayOfTask" />
+      <xs:element minOccurs="0" name="Tenders" nillable="true" type="tns:ArrayOfTender" />
+      <xs:element minOccurs="0" name="TimeRegistrationUsers" nillable="true" type="tns:ArrayOfUser" />
+      <xs:element minOccurs="0" name="TimeRegistrations" nillable="true" type="tns:ArrayOfTimeRegistration" />
+      <xs:element minOccurs="0" name="TotalIssues" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalPlan" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalQuestionnaires" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalRequirements" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalUsers" type="xs:int" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchResults" nillable="true" type="tns:SearchResults" />
+  <xs:complexType name="ArrayOfRequirementSearchFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementSearchFilter" nillable="true" type="tns:RequirementSearchFilter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementSearchFilter" nillable="true" type="tns:ArrayOfRequirementSearchFilter" />
+  <xs:complexType name="RequirementSearchFilter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SearchFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RequirementSearchArguments" nillable="true" type="tns:RequirementSearchArguments" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequirementSearchFilter" nillable="true" type="tns:RequirementSearchFilter" />
+  <xs:complexType name="ArrayOfTreeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreeNode" nillable="true" type="tns:TreeNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreeNode" nillable="true" type="tns:ArrayOfTreeNode" />
+  <xs:complexType name="TreeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Children" nillable="true" type="tns:ArrayOfTreeNode" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Created_by" type="ser:guid" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="Tree_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Updated_by" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreeNode" nillable="true" type="tns:TreeNode" />
+  <xs:complexType name="SecurityPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="ObjectID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ObjectType" type="q64:RequirementOneObjectTypes" />
+      <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="Permission" type="q65:Permissions" />
+      <xs:element minOccurs="0" name="ProjectID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SecurityPermission" nillable="true" type="tns:SecurityPermission" />
+  <xs:complexType name="ArrayOfUserPermissionsForApps">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserPermissionsForApps" nillable="true" type="tns:UserPermissionsForApps" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserPermissionsForApps" nillable="true" type="tns:ArrayOfUserPermissionsForApps" />
+  <xs:complexType name="UserPermissionsForApps">
+    <xs:sequence>
+      <xs:element xmlns:q66="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Permissions" nillable="true" type="q66:ArrayOfKeyValueOfguidPermissionsjh_PQ7s3G" />
+      <xs:element minOccurs="0" name="UserId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserPermissionsForApps" nillable="true" type="tns:UserPermissionsForApps" />
+  <xs:complexType name="ArrayOfRequirementOneApp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementOneApp" nillable="true" type="tns:RequirementOneApp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementOneApp" nillable="true" type="tns:ArrayOfRequirementOneApp" />
+  <xs:complexType name="RequirementOneApp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementOneApp" nillable="true" type="tns:RequirementOneApp" />
+  <xs:complexType name="ArrayOfSecurityPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SecurityPermission" nillable="true" type="tns:SecurityPermission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSecurityPermission" nillable="true" type="tns:ArrayOfSecurityPermission" />
+  <xs:complexType name="RequirementOneConstants">
+    <xs:sequence>
+      <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="BillingChargeDetailsTypeList" nillable="true" type="q67:ArrayOfBillingChargeDetailsType" />
+      <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="BillingChargePaymentStatusList" nillable="true" type="q68:ArrayOfBillingChargePaymentStatus" />
+      <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="BillingChargeTypeList" nillable="true" type="q69:ArrayOfBillingChargeType" />
+      <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="BillingProductCategoryList" nillable="true" type="q70:ArrayOfBillingProductCategory" />
+      <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ChangeActivityList" nillable="true" type="q71:ArrayOfChangeActivity" />
+      <xs:element minOccurs="0" name="CountryList" nillable="true" type="tns:ArrayOfCountry" />
+      <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="CoverageList" nillable="true" type="q72:ArrayOfCoverage" />
+      <xs:element minOccurs="0" name="CultureList" nillable="true" type="tns:ArrayOfReqOneCulture" />
+      <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="CustomFieldTypeList" nillable="true" type="q73:ArrayOfCustomFieldType" />
+      <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ExternalLinkTypes" nillable="true" type="q74:ArrayOfExternalLinkType" />
+      <xs:element minOccurs="0" name="IndustryList" nillable="true" type="tns:ArrayOfIndustry" />
+      <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="InterestList" nillable="true" type="q75:ArrayOfInterests" />
+      <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="IssueStatusList" nillable="true" type="q76:ArrayOfIssueStatus" />
+      <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="LinkTypeList" nillable="true" type="q77:ArrayOfLinkType" />
+      <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ObjectFieldsList" nillable="true" type="q78:ArrayOfObjectFields" />
+      <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ReportFormatList" nillable="true" type="q79:ArrayOfReportFormat" />
+      <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="RequirementMatrixTypeList" nillable="true" type="q80:ArrayOfRequirementMatrixType" />
+      <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="SignUpConfirmationResultList" nillable="true" type="q81:ArrayOfSignUpConfirmationResult" />
+      <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="SpecificationTypeList" nillable="true" type="q82:ArrayOfSpecificationType" />
+      <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="SubmissionStatusList" nillable="true" type="q83:ArrayOfSubmissionStatus" />
+      <xs:element minOccurs="0" name="TaskLinkObjectTypeList" nillable="true" type="tns:ArrayOfTaskLinkTypes" />
+      <xs:element minOccurs="0" name="TimeZoneList" nillable="true" type="tns:ArrayOfReqOneTimeZone" />
+      <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="UserRoleList" nillable="true" type="q84:ArrayOfUserRole" />
+      <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="YesNoAllList" nillable="true" type="q85:ArrayOfYesNoAll" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementOneConstants" nillable="true" type="tns:RequirementOneConstants" />
+  <xs:complexType name="ArrayOfCountry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Country" nillable="true" type="tns:Country" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCountry" nillable="true" type="tns:ArrayOfCountry" />
+  <xs:complexType name="Country">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Country" nillable="true" type="tns:Country" />
+  <xs:complexType name="ArrayOfReqOneCulture">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReqOneCulture" nillable="true" type="tns:ReqOneCulture" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReqOneCulture" nillable="true" type="tns:ArrayOfReqOneCulture" />
+  <xs:complexType name="ReqOneCulture">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReqOneCulture" nillable="true" type="tns:ReqOneCulture" />
+  <xs:complexType name="ArrayOfIndustry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Industry" nillable="true" type="tns:Industry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIndustry" nillable="true" type="tns:ArrayOfIndustry" />
+  <xs:complexType name="Industry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Industry" nillable="true" type="tns:Industry" />
+  <xs:complexType name="ArrayOfTaskLinkTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskLinkTypes" nillable="true" type="tns:TaskLinkTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskLinkTypes" nillable="true" type="tns:ArrayOfTaskLinkTypes" />
+  <xs:complexType name="TaskLinkTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppId" type="ser:guid" />
+      <xs:element minOccurs="0" name="AppName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/ReqOne.Common" minOccurs="0" name="ObjectTypes" nillable="true" type="q86:ArrayOfRequirementOneObjectTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskLinkTypes" nillable="true" type="tns:TaskLinkTypes" />
+  <xs:complexType name="ArrayOfReqOneTimeZone">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReqOneTimeZone" nillable="true" type="tns:ReqOneTimeZone" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReqOneTimeZone" nillable="true" type="tns:ArrayOfReqOneTimeZone" />
+  <xs:complexType name="ReqOneTimeZone">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UtcOffsetInMinutes" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReqOneTimeZone" nillable="true" type="tns:ReqOneTimeZone" />
+  <xs:complexType name="ArrayOfProjectStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProjectStatistics" nillable="true" type="tns:ProjectStatistics" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProjectStatistics" nillable="true" type="tns:ArrayOfProjectStatistics" />
+  <xs:complexType name="ProjectStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IssueCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ProjectId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequirementCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TaskCount" type="xs:int" />
+      <xs:element minOccurs="0" name="UserCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProjectStatistics" nillable="true" type="tns:ProjectStatistics" />
+  <xs:complexType name="ProjectAppStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CanReadFeedbackApp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanReadIssuesApp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanReadPlanApp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanReadSpecificationsApp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanReadTenderApp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FeedbackQuestionnaireCount" type="xs:int" />
+      <xs:element minOccurs="0" name="FeedbackResponseCount" type="xs:int" />
+      <xs:element minOccurs="0" name="FeedbackResponseCountLast7Days" type="xs:int" />
+      <xs:element minOccurs="0" name="FeedbackSurveyCount" type="xs:int" />
+      <xs:element minOccurs="0" name="IssueActiveIssueCount" type="xs:int" />
+      <xs:element minOccurs="0" name="IssueClosedIssueCount" type="xs:int" />
+      <xs:element minOccurs="0" name="IssueGroupCount" type="xs:int" />
+      <xs:element minOccurs="0" name="IssuesCreatedLast7Days" type="xs:int" />
+      <xs:element minOccurs="0" name="PlanCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PlanPercentCompleted" type="xs:double" />
+      <xs:element minOccurs="0" name="PlanTaskCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PlanTimeRegistered" type="xs:double" />
+      <xs:element minOccurs="0" name="SpecificationCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SpecificationRequirementCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SpecificationRequirementsCreatedLast7Days" type="xs:int" />
+      <xs:element minOccurs="0" name="SpecificationRequirementsUpdatedLast7Days" type="xs:int" />
+      <xs:element minOccurs="0" name="TenderIterationCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TenderQuestionnaireCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TenderRespondingUserCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TenderRespondingUserCountLast7Days" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProjectAppStatistics" nillable="true" type="tns:ProjectAppStatistics" />
+  <xs:complexType name="ProjectInvitation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Accepted" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Permissions" nillable="true" type="tns:ArrayOfSecurityPermission" />
+      <xs:element minOccurs="0" name="ProjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProjectInvitation" nillable="true" type="tns:ProjectInvitation" />
+  <xs:complexType name="ArrayOfProjectInvitation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProjectInvitation" nillable="true" type="tns:ProjectInvitation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProjectInvitation" nillable="true" type="tns:ArrayOfProjectInvitation" />
+  <xs:complexType name="ArrayOfRequirementNoteCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementNoteCategory" nillable="true" type="tns:RequirementNoteCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementNoteCategory" nillable="true" type="tns:ArrayOfRequirementNoteCategory" />
+  <xs:complexType name="RequirementNoteCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SpecificationID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementNoteCategory" nillable="true" type="tns:RequirementNoteCategory" />
+  <xs:complexType name="ArrayOfRequirementAttachmentCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequirementAttachmentCategory" nillable="true" type="tns:RequirementAttachmentCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirementAttachmentCategory" nillable="true" type="tns:ArrayOfRequirementAttachmentCategory" />
+  <xs:complexType name="RequirementAttachmentCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SpecificationID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Updated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementAttachmentCategory" nillable="true" type="tns:RequirementAttachmentCategory" />
+</xs:schema>

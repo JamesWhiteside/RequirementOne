@@ -1,0 +1,23 @@
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneApiReference\bin\Debug\ReqOneApiReference.dll.config
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneApiReference\bin\Debug\ReqOneApiReference.dll
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneApiReference\bin\Debug\ReqOneApiReference.pdb
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneApiReference\obj\Debug\ReqOneApiReference.csprojResolveAssemblyReference.cache
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneApiReference\obj\Debug\ReqOneApiReference.dll
+C:\vcs\RequirementOne Apps\Prototypes\ReqOneNaturalLanguage\ReqOneApiReference\obj\Debug\ReqOneApiReference.pdb
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneApiReference\bin\Debug\ReqOneApiReference.dll.config
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneApiReference\bin\Debug\ReqOneApiReference.dll
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneApiReference\bin\Debug\ReqOneApiReference.pdb
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneApiReference\obj\Debug\ReqOneApiReference.dll
+C:\vcs\RequirementOne Apps\Prototypes\R1 Quick Start\ReqOneApiReference\obj\Debug\ReqOneApiReference.pdb
+E:\Proiecte\RequirementONE Quick Start\ReqOneApiReference\bin\Debug\ReqOneApiReference.dll.config
+E:\Proiecte\RequirementONE Quick Start\ReqOneApiReference\bin\Debug\ReqOneApiReference.dll
+E:\Proiecte\RequirementONE Quick Start\ReqOneApiReference\bin\Debug\ReqOneApiReference.pdb
+E:\Proiecte\RequirementONE Quick Start\ReqOneApiReference\obj\Debug\ReqOneApiReference.dll
+E:\Proiecte\RequirementONE Quick Start\ReqOneApiReference\obj\Debug\ReqOneApiReference.pdb
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqOneApiReference\bin\Debug\ReqOneApiReference.dll.config
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqOneApiReference\bin\Debug\ReqOneApiReference.dll
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqOneApiReference\bin\Debug\ReqOneApiReference.pdb
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqOneApiReference\obj\Debug\ReqOneApiReference.dll
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqOneApiReference\obj\Debug\ReqOneApiReference.pdb
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqOneApiReference\bin\Debug\ReqOneApiReference.dll.CodeAnalysisLog.xml
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqOneApiReference\bin\Debug\ReqOneApiReference.dll.lastcodeanalysissucceeded
