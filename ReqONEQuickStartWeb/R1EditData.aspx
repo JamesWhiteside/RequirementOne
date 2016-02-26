@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="R1EditData.aspx.cs" Inherits="RequirementONEQuickStartWeb.R1EditData" Title="ReqOne Quick Start Processing" %>
 
 <!DOCTYPE html>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -36,18 +37,29 @@
           <td><asp:DropDownList ID="ddlReviews" runat="server" /></td>
           <td><asp:Button ID="btnSearchIssues" runat="server" Text="Search"
             OnClick="btnSearchIssues_Click" /></td>
+            
         </tr>
       </table>
     </div>
-    <td></td>
     <div class="stats">
       <asp:Label ID="lblStatistics" runat="server" style="font-style:italic;" />
     </div>
 
-    <div><asp:Button ID="LoadButton" runat="server" Text="Load Data"
-            OnClick="LoadData_Click" /></div>
     
-    <div class="results">
+    <div><asp:Button ID="LoadButton" runat="server" Text="Load Data"
+            OnClick="LoadData_Click" />
+        <asp:TextBox ID="editText" runat="server" Width="802px"></asp:TextBox>
+    </div>
+    <div><asp:Button ID="UploadChanges" runat="server" Text="Commit Changes" ToolTip="BE CAREFUL!" 
+        OnClick="UpLoadData_Click"/>
+        
+    </div>
+    <div></div>
+    <div class="results">  
+        <br />
+        <br />
+        <br />
+        <br />
       <br />
       <asp:ListView ID="lvSearchResults" runat="server">
         <ItemTemplate>
@@ -61,5 +73,6 @@
       </asp:ListView>
     </div>
     </form>
+
 </body>
 </html>

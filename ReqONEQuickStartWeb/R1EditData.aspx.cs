@@ -269,8 +269,24 @@ namespace RequirementONEQuickStartWeb
             if(loadedData == null){
                 return;
             }
+            //System.Diagnostics.Debug.Write("\n"+loadedData.Details);
+            editText.Text = loadedData.Details;
+            /*
+            var testData = _api.SpecificationsRequirementGetAll(specificationID, AuthUtil.AuthToken);
+            if (testData == null)
+            {
+                return;
+            }
             
-            System.Diagnostics.Debug.Write(loadedData.CreatedBy);        
+            for (int i = 1; i < testData.Count(); i++)
+            {
+                System.Diagnostics.Debug.Write("\n" + testData[i].RequirementID.ToString());
+            }
+            */
+        }
+        protected void UpLoadData_Click(object sender, EventArgs e) 
+        { 
+            
         }
     }
 }
