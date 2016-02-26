@@ -36,7 +36,7 @@ namespace ReqOneUI
             SessionContext.User = reqOneUser;
             FormsAuthentication.SetAuthCookie(reqOneUser.UserID.ToString(), false);
 
-            Response.Redirect("~/R1Hierarchy.aspx");
+            Response.Redirect("~/R1EditData.aspx");
         }
     }
 }

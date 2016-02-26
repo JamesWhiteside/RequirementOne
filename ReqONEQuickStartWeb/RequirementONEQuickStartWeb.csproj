@@ -68,6 +68,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="R1EditData.aspx" />
     <Content Include="R1Hierarchy.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="res\Error.aspx" />
@@ -78,6 +79,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="R1EditData.aspx.cs">
+      <DependentUpon>R1EditData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="R1EditData.aspx.designer.cs">
+      <DependentUpon>R1EditData.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomTreeNodeEventArgs.cs" />
     <Compile Include="CustomTreeView.cs" />
     <Compile Include="R1Hierarchy.aspx.cs">

@@ -6,14 +6,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Diagnostics;
-using System.Windows.Forms;
 using ReqOneApiReference.ReqOneApi;
 using ReqOneUI;
-using TreeNode = System.Web.UI.WebControls.TreeNode;
 
 namespace RequirementONEQuickStartWeb
 {
-    public partial class R1Hierarchy : System.Web.UI.Page
+    public partial class R1EditData : System.Web.UI.Page
     {
         readonly int MAX_RESULTS = int.Parse(ConfigurationManager.AppSettings["MaxSearchResults"]);
         const string ALL = "all";
@@ -101,16 +99,15 @@ namespace RequirementONEQuickStartWeb
 
         protected void btnSearchRequirements_Click(object sender, EventArgs e)
         {
-            if (ddlSpecifications.SelectedItem == null || ddlProjects.SelectedItem == null)
+            if (tbText.Text.Trim() == "" || ddlSpecifications.SelectedItem == null ||
+                ddlProjects.SelectedItem == null)
             {
                 return;
             }
 
             Statistics stats;
-           
             var reqs = SearchRequirements(tbText.Text, out stats);
-            
-            
+
             var output = reqs.Select(r => new
             {
                 CustomId = r.CustomIdentifier,
@@ -130,7 +127,8 @@ namespace RequirementONEQuickStartWeb
 
         protected void btnSearchIssues_Click(object sender, EventArgs e)
         {
-            if (ddlReviews.SelectedItem == null || ddlProjects.SelectedItem == null)
+            if (tbText.Text.Trim() == "" || ddlReviews.SelectedItem == null ||
+                ddlProjects.SelectedItem == null)
             {
                 return;
             }
@@ -168,13 +166,13 @@ namespace RequirementONEQuickStartWeb
                 return text.Replace("\r\n", "\n").Replace("\n", "<br/>");
         }
 
-        //SEARCHREQUIREMENTS
+
         List<RequirementDetails> SearchRequirements(string text, out Statistics stats)
         {
             stats = new Statistics();
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            if(treeHierarchy.Nodes.Count > 0) treeHierarchy.Nodes.Clear();
+
             List<RequirementDetails> reqs = new List<RequirementDetails>();
 
             if (ddlSpecifications.SelectedItem == null)
@@ -186,7 +184,6 @@ namespace RequirementONEQuickStartWeb
                 {
                     if (ddlSpecifications.Items[i].Value != ALL)
                     {
-                        
                         reqs.AddRange(_api.SpecificationsRequirementSearch(new RequirementSearchArguments {
                             Projects = new Guid[] { new Guid(ddlProjects.SelectedValue) },
                             Specifications = new SpecificationSearchArguments[] { new SpecificationSearchArguments {SpecificationID = new Guid(ddlSpecifications.Items[i].Value)} },
@@ -203,19 +200,18 @@ namespace RequirementONEQuickStartWeb
                         Specifications = new SpecificationSearchArguments[] { new SpecificationSearchArguments {SpecificationID = new Guid(ddlSpecifications.SelectedValue)} },
                         FreeText = text
                     }  , AuthUtil.AuthToken).Requirements);
-            //***************************ADDED IN
-            createTreeParentNodes(reqs.ToList());
-            //***************************
+
             stats.TotalRecords = reqs.Count();
             stats.ApiCallDuration = watch.Elapsed;
             watch.Restart();
-            
+
        _exit:
             stats.TotalProcessingDuration += watch.Elapsed;
-       
+
        return reqs.ToList();
         }
 
+        // ======================================================
 
         List<Issue> SearchIssues(string text, out Statistics stats)
         {
@@ -265,145 +261,16 @@ namespace RequirementONEQuickStartWeb
             return issues;
         }
 
-        //CLEAR
-        protected void btnclearResults(object sender, EventArgs e)
+        protected void LoadData_Click(object sender, EventArgs e)
         {
-            tbText.Text = null;
-            lvSearchResults.DataSource = null;
-            lvSearchResults.DataBind();
-            treeHierarchy.Nodes.Clear();
-        }
-
-        /// <summary>
-        /// This class is called whenever the selected Index is Changed
-        /// It automatically creates a tree table whenever the Index is changed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void generateResults(object sender, EventArgs e)
-        {
-            List<RequirementDetails> reqs = new List<RequirementDetails>();
-
-            if (ddlSpecifications.SelectedValue == ALL)
-            {
-                for (int i = 0; i < ddlSpecifications.Items.Count; i++)
-                {
-                    if (ddlSpecifications.Items[i].Value != ALL)
-                    {
-                        reqs.AddRange(_api.SpecificationsRequirementSearch(new RequirementSearchArguments
-                        {
-                            Projects = new Guid[] { new Guid(ddlProjects.SelectedValue) },
-                            Specifications = new SpecificationSearchArguments[] { new SpecificationSearchArguments { SpecificationID = new Guid(ddlSpecifications.Items[i].Value) } },
-                        },
-                           AuthUtil.AuthToken).Requirements);
-                    }
-                }
-            }
-            else
-                reqs.AddRange(_api.SpecificationsRequirementSearch(new RequirementSearchArguments
-                {
-                    Projects = new Guid[] { new Guid(ddlProjects.SelectedValue) },
-                    Specifications = new SpecificationSearchArguments[] { new SpecificationSearchArguments { SpecificationID = new Guid(ddlSpecifications.SelectedValue) } },
-                }, AuthUtil.AuthToken).Requirements);
-            //***************************ADDED IN
-            createTreeParentNodes(reqs.ToList());
-            //***************************
-        }
-
-        /// <summary>
-        /// This code should go through the list, every time there's a new
-        /// "subsection" it will call bindtree which will add that subsection
-        /// Then it will continue on
-        /// Depends on sorted list(by ID), all ID's being processed correctly
-        /// </summary>
-        /// <param name="list"></param>
-        protected void createTreeParentNodes(List<RequirementDetails> list) {
-            treeHierarchy.Nodes.Clear();
-            
-            /*Include all code*/
-            if (ddlSpecifications.SelectedItem.ToString() == "Include all")
-            {
-                for (int i = 1; i < ddlSpecifications.Items.Count; i++)
-                {
-
-                    CustomTreeNode rootNode = new CustomTreeNode(ddlSpecifications.Items[i].ToString(), ddlSpecifications.Items[i].Value.ToString());
-                    CustomTreeNode parentNode = new CustomTreeNode("", "");
-                    treeHierarchy.Nodes.Add(rootNode);
-                    List<RequirementDetails> miniList = list.Where(k => k.SpecificationName== ddlSpecifications.Items[i].ToString()).ToList();
-                    for (int j = 0; j < miniList.Count(); j++)
-                    {
-                        if (miniList[j].TreeName != parentNode.Text)
-                        {
-                            parentNode = new CustomTreeNode(miniList[j].TreeName, miniList[j].TreeParentID.ToString());
-                            rootNode.ChildNodes.Add(parentNode);
-                            bindTree(miniList, parentNode, j);
-                        }
-                    }   
-
-                }
-            }
-            /*Include all code*/
-            else
-            {
-                CustomTreeNode rootNode = new CustomTreeNode(ddlSpecifications.SelectedItem.ToString(), list[0].TreeParentID.ToString());
-                CustomTreeNode parentNode = new CustomTreeNode("", "");
-                treeHierarchy.Nodes.Add(rootNode);
-                for (int i = 0; i < list.Count(); i++)
-                {
-                    if (list[i].TreeName != parentNode.Text)
-                    {
-                        parentNode = new CustomTreeNode(list[i].TreeName, list[i].TreeParentID.ToString());
-                        rootNode.ChildNodes.Add(parentNode);
-                        bindTree(list.ToList(), parentNode, i);
-                    }
-                }
+            Guid specificationID = new Guid(ddlSpecifications.SelectedValue);
+            Specification loadedData = new Specification(); 
+            loadedData = _api.SpecificationsGet(specificationID, AuthUtil.AuthToken);
+            if(loadedData == null){
+                return;
             }
             
-        }
-        //Need to have code jump out, and return an index for the above method to use
-        protected void bindTree(List<RequirementDetails> list, CustomTreeNode parentNode, int depth)
-        {
-            var nodes = list.Where(x => parentNode == null ? x.TreeParentID != 0 : x.TreeParentID == int.Parse(parentNode.Value));
-            foreach (var node in nodes) {
-                CustomTreeNode newNode = new CustomTreeNode(node.Name, node.TreeID.ToString());
-                newNode.Tag = node;
-                if (parentNode == null) { 
-                    treeHierarchy.Nodes.Add(newNode);
-                }
-                else { 
-                    parentNode.ChildNodes.Add(newNode);
-                    depth++;
-                }
-                bindTree(list, newNode, depth);
-            }
-            treeHierarchy.CollapseAll();
-        }
-        //Fix this problem of it not working
-        protected void nodeCheckChanged(object sender, CustomTreeNodeEventArgs e)
-        {
-            //RequirementDetails test = Convert.ChangeType(e.Node.Target, typeof(RequirementDetails));
-            if (e.Node.Checked)
-            {
-                List<RequirementDetails> reqs = new List<RequirementDetails>(); 
-                reqs[0] = e.Node.Tag; 
-                var output = reqs.Select(r => new
-                {
-                    CustomId = r.CustomIdentifier,
-                    Name = r.Name,
-                    Link = string.Format("https://ui.requirementone.com/specification/overview/specification/requirement/?projectid={0}&specificationid={1}&requirementid={2}",
-                        r.ProjectID,
-                        r.SpecificationID,
-                        r.RequirementID),
-                    Details = PrepareForHtml(r.Details)
-                });
-
-                lvSearchResults.DataSource = output;
-                lvSearchResults.DataBind();
-                //masterList.Add(e.Node.Value as RequirementDetails);
-            }
-            else {
-                //masterList.Remove(e.Node.Value as RequirementDetails);
-            }
+            System.Diagnostics.Debug.Write(loadedData.CreatedBy);        
         }
     }
 }
