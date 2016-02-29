@@ -6,9 +6,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link  href="Style.css" rel="stylesheet"/>
+    <!--<link  href="Style.css" rel="stylesheet"/>-->
 </head>
 <body>
+    <style>
+        body, textarea, select, input
+    {
+      font-family: "Segoe UI", "Lucida Grande", "Arial";
+      font-size: 13px;
+    }
+    select
+    {
+      width: 300px;
+    }
+    textarea
+    {
+      width: 300px;
+    }
+    td
+    {
+      padding-bottom: 4px;
+    }
+    div.searchCriteria, div.stats
+    {
+      float:left;
+    }
+    div.results
+    {
+      float:none;
+    }
+
+      .auto-style1
+      {
+          width: 97px;
+      }
+
+      .auto-style2
+      {
+          width: 4px;
+      }
+      .searchButton
+      {
+      }
+      .searchButton:hover
+      {
+      }
+    </style>
 
     <form id="form1" runat="server">
 

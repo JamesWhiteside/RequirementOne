@@ -268,29 +268,26 @@ namespace RequirementONEQuickStartWeb
         {
             Guid specificationID = new Guid(ddlSpecifications.SelectedValue);
 
-            var testData = _api.SpecificationsRequirementGetAll(specificationID, AuthUtil.AuthToken);
-            if (testData == null)
+            var downloadData = _api.SpecificationsRequirementGetAll(specificationID, AuthUtil.AuthToken);
+            if (downloadData == null)
             {
                 return;
             }
-
+            Response.ContentEncoding = System.Text.Encoding.GetEncoding("Windows-1252");
             Response.ContentType = "application/msword";
             Response.AddHeader("Content-Disposition", "attachment; filename=\"test" + ".doc\"");
-
-            foreach(var test in testData){
-                Response.Write(test.CustomIdentifier);
-                Response.Write(test.Name);
-                /*Link = string.Format("https://ui.requirementone.com/specification/overview/specification/requirement/?projectid={0}&specificationid={1}&requirementid={2}",
-                    test.ProjectID,
-                    test.SpecificationID,
-                    test.RequirementID);*/
-                 Response.Write(PrepareForHtml(test.Details));
-            }
-
-            //Response.Flush();
+            /*
+            foreach (var test in downloadData)
+            {
+                Response.Write(test.CustomIdentifier + Environment.NewLine);
+                Response.Write(test.Name+Environment.NewLine);
+                Response.Write(test.Details + Environment.NewLine);
+                Response.Write(Environment.NewLine);
+            }*/
+            
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
-
+        
         
         protected void UpLoadData_Click(object sender, EventArgs e) 
         {
