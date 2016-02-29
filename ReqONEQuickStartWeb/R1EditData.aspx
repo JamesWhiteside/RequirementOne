@@ -48,10 +48,9 @@
     
     <div><asp:Button ID="LoadButton" runat="server" Text="Load Data"
             OnClick="LoadData_Click" />
-        <asp:TextBox ID="editText" runat="server" Width="802px"></asp:TextBox>
     </div>
     <div><asp:Button ID="UploadChanges" runat="server" Text="Commit Changes" ToolTip="BE CAREFUL!" 
-        OnClick="UpLoadData_Click"/>
+        OnClick="UpLoadData_Click" OnClientClick="if (!confirm('Are you sure you want to proceed with Click?')) return false;"/>
         
     </div>
     <div></div>
