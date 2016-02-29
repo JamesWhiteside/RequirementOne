@@ -263,57 +263,32 @@ namespace RequirementONEQuickStartWeb
             return issues;
         }
 
+        
         protected void LoadData_Click(object sender, EventArgs e)
         {
             Guid specificationID = new Guid(ddlSpecifications.SelectedValue);
-            Specification loadedData = new Specification();
-            loadedData = _api.SpecificationsGet(specificationID, AuthUtil.AuthToken);
-            if (loadedData == null)
-            {
-                return;
-            }
-            System.Diagnostics.Debug.Write("\n" + loadedData.Details);
 
-            
-            Response.ContentType = "application/msword";
-            Response.AddHeader("Content-Disposition", "attachment; filename=\"test"+ ".doc\"");
-            //Response.AddHeader("Content-Length", loadedData.CreatedBy.ToString());
-            Response.Write(loadedData.Name);
-            Response.Flush();
-            Response.End();
-
-
-            /*
             var testData = _api.SpecificationsRequirementGetAll(specificationID, AuthUtil.AuthToken);
             if (testData == null)
             {
                 return;
             }
-            var output = testData.Select(r => new
-            {
-                CustomId = r.CustomIdentifier,
-                Name = r.Name,
-                Link = string.Format("https://ui.requirementone.com/specification/overview/specification/requirement/?projectid={0}&specificationid={1}&requirementid={2}",
-                    r.ProjectID,
-                    r.SpecificationID,
-                    r.RequirementID),
-                Details = PrepareForHtml(r.Details)
-            });
-            Response.Clear();
-            Response.ClearHeaders();
-            Response.ClearContent();
-            Response.ContentType = "application/msword";
-            
-            for(int i = 0; i < output.Count(); i++){
-                Response.AddHeader("Content-Disposition", "attachment; filename=\""+output[i]. + ".doc\"");
-                Response.AddHeader("Content-Length", loadedData.CreatedBy.ToString()); 
-                Response.Flush();
-                Response.Write();
-            }
-            Response.TransmitFile(loadedData.Name);
-            HttpContext.Current.ApplicationInstance.CompleteRequest();    
 
-            */
+            Response.ContentType = "application/msword";
+            Response.AddHeader("Content-Disposition", "attachment; filename=\"test" + ".doc\"");
+
+            foreach(var test in testData){
+                Response.Write(test.CustomIdentifier);
+                Response.Write(test.Name);
+                /*Link = string.Format("https://ui.requirementone.com/specification/overview/specification/requirement/?projectid={0}&specificationid={1}&requirementid={2}",
+                    test.ProjectID,
+                    test.SpecificationID,
+                    test.RequirementID);*/
+                 Response.Write(PrepareForHtml(test.Details));
+            }
+
+            //Response.Flush();
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
 
         
