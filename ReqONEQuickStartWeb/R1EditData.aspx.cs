@@ -9,7 +9,6 @@ using System.Web.UI.WebControls;
 using System.Diagnostics;
 using ReqOneApiReference.ReqOneApi;
 using ReqOneUI;
-using Novacode;
 
 namespace RequirementONEQuickStartWeb
 {
@@ -17,7 +16,7 @@ namespace RequirementONEQuickStartWeb
     {
         readonly int MAX_RESULTS = int.Parse(ConfigurationManager.AppSettings["MaxSearchResults"]);
         const string ALL = "all";
-        Specification currData = new Specification(); 
+        static List<RequirementDetails> currList = new List<RequirementDetails>();
         ReqOneApiClient _api = new ReqOneApiClient();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -102,15 +101,14 @@ namespace RequirementONEQuickStartWeb
 
         protected void btnSearchRequirements_Click(object sender, EventArgs e)
         {
-            if (tbText.Text.Trim() == "" || ddlSpecifications.SelectedItem == null ||
-                ddlProjects.SelectedItem == null)
+            if (ddlSpecifications.SelectedItem == null || ddlProjects.SelectedItem == null)
             {
                 return;
             }
-
+            
             Statistics stats;
             var reqs = SearchRequirements(tbText.Text, out stats);
-
+            
             var output = reqs.Select(r => new
             {
                 CustomId = r.CustomIdentifier,
@@ -124,14 +122,15 @@ namespace RequirementONEQuickStartWeb
 
             lvSearchResults.DataSource = output;
             lvSearchResults.DataBind();
-
+            
             ShowStatistics(stats);
+            currList.Clear();
+            currList.AddRange(reqs);
         }
 
         protected void btnSearchIssues_Click(object sender, EventArgs e)
         {
-            if (tbText.Text.Trim() == "" || ddlReviews.SelectedItem == null ||
-                ddlProjects.SelectedItem == null)
+            if (ddlReviews.SelectedItem == null || ddlProjects.SelectedItem == null)
             {
                 return;
             }
@@ -267,24 +266,47 @@ namespace RequirementONEQuickStartWeb
         
         protected void LoadData_Click(object sender, EventArgs e)
         {
-            Guid specificationID = new Guid(ddlSpecifications.SelectedValue);
+            //Guid specificationID = new Guid(ddlSpecifications.SelectedValue);
 
-            var downloadData = _api.SpecificationsRequirementGetAll(specificationID, AuthUtil.AuthToken);
-            if (downloadData == null)
+            //var downloadData = _api.SpecificationsRequirementGetAll(specificationID, AuthUtil.AuthToken);
+            if (currList == null || currList.Count == 0)
             {
                 return;
             }
-            
+            Response.Clear();
+            Response.ClearHeaders();
+            Response.ClearContent();
             Response.ContentEncoding = System.Text.Encoding.GetEncoding("Windows-1252");
             Response.ContentType = "application/msword";
             Response.AddHeader("Content-Disposition", "attachment; filename=\"Record" + ".doc\"");
-            foreach (var test in downloadData)
-            {
-                
-                Response.Write(test.CustomIdentifier + Environment.NewLine);
-                Response.Write(test.Name+Environment.NewLine);
-                Response.Write(test.Details + Environment.NewLine);
-                Response.Write(Environment.NewLine);
+
+            if (ddlSpecifications.SelectedValue == ALL) {
+                for (int i = 0; i < ddlSpecifications.Items.Count; i++)
+                {
+                    if (ddlSpecifications.Items[i].Value != ALL)
+                    {
+                        for(int j = 0; j < currList.Count(); j++)
+                        {
+                        if(currList[j].SpecificationName != ddlSpecifications.Items[i].ToString()){
+                            continue;
+                        }
+                            Response.Write(currList[j].CustomIdentifier + Environment.NewLine);
+                            Response.Write(currList[j].Name + Environment.NewLine);
+                            Response.Write(currList[j].Details + Environment.NewLine);
+                            Response.Write(Environment.NewLine);
+                            currList.Remove(currList[j]);
+                        }
+                    
+                    }
+                }
+            }else{
+                foreach (var data in currList)
+                {
+                    Response.Write(data.CustomIdentifier + Environment.NewLine);
+                    Response.Write(data.Name+Environment.NewLine);
+                    Response.Write(data.Details + Environment.NewLine);
+                    Response.Write(Environment.NewLine);
+                }
             }
             Response.Flush();
             //Needed else html code will appear
@@ -296,12 +318,9 @@ namespace RequirementONEQuickStartWeb
         
         protected void UpLoadData_Click(object sender, EventArgs e) 
         {
-            /*
-            currData.Details = editText.Text;
-            _api.SpecificationsSave(currData, AuthUtil.AuthToken);
-            */
+            
              
         }
-          
+         
     }
 }
