@@ -274,34 +274,23 @@ namespace RequirementONEQuickStartWeb
             {
                 return;
             }
-
-            string filePath = @"C:\Users\James.Whiteside\Downloads\" + ddlSpecifications.SelectedValue + ".docx";
-            var doc = DocX.Create(filePath);
-
-            /*
-            Response.Clear();
-            Response.ClearContent();
-            Response.ClearHeaders();
+            
             Response.ContentEncoding = System.Text.Encoding.GetEncoding("Windows-1252");
             Response.ContentType = "application/msword";
-            Response.AddHeader("Content-Disposition", "attachment; filename=\"test" + ".doc\"");
-            */
+            Response.AddHeader("Content-Disposition", "attachment; filename=\"Record" + ".doc\"");
             foreach (var test in downloadData)
             {
-                /*
+                
                 Response.Write(test.CustomIdentifier + Environment.NewLine);
                 Response.Write(test.Name+Environment.NewLine);
                 Response.Write(test.Details + Environment.NewLine);
                 Response.Write(Environment.NewLine);
-                */
-                doc.InsertParagraph(test.CustomIdentifier + Environment.NewLine);
-                doc.InsertParagraph(test.Name + Environment.NewLine);
-                doc.InsertParagraph(test.Details + Environment.NewLine);
-                doc.InsertParagraph(Environment.NewLine);
             }
-            doc.Save();
-            Process.Start("WINWORD.EXE", filePath);
-            //HttpContext.Current.ApplicationInstance.CompleteRequest();
+            Response.Flush();
+            //Needed else html code will appear
+            Response.End();
+            //Not sure if this line does anything
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         
         

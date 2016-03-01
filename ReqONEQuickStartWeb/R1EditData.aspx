@@ -51,6 +51,10 @@
       .searchButton:hover
       {
       }
+        .response.write
+        {
+            font-family:'Times New Roman';
+        }
     </style>
 
     <form id="form1" runat="server">
@@ -90,10 +94,10 @@
 
     
     <div><asp:Button ID="LoadButton" runat="server" Text="Download Data"
-            OnClick="LoadData_Click" />
+            OnClick="LoadData_Click" ToolTip="Download records as word Doc" />
     </div>
-    <div><asp:Button ID="UploadChanges" runat="server" Text="Upload Data" ToolTip="Check changes" 
-        OnClick="UpLoadData_Click" OnClientClick="if (!confirm('Are you sure you want to proceed with Click?')) return false;" Width="135px"/>
+    <div><asp:Button ID="UploadChanges" runat="server" Text="Upload Data" ToolTip="Upload changes to documents" 
+        OnClick="UpLoadData_Click" OnClientClick="if (!confirm('Are you sure you want to proceed with changes?')) return false;" Width="135px"/>
         
     </div>
     <div></div>
