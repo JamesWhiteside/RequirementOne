@@ -285,6 +285,7 @@ namespace RequirementONEQuickStartWeb
                 {
                     if (ddlSpecifications.Items[i].Value != ALL)
                     {
+                        Response.Write(ddlSpecifications.Items[i].ToString() + Environment.NewLine);
                         for(int j = 0; j < currList.Count(); j++)
                         {
                         if(currList[j].SpecificationName != ddlSpecifications.Items[i].ToString()){
@@ -294,7 +295,6 @@ namespace RequirementONEQuickStartWeb
                             Response.Write(currList[j].Name + Environment.NewLine);
                             Response.Write(currList[j].Details + Environment.NewLine);
                             Response.Write(Environment.NewLine);
-                            currList.Remove(currList[j]);
                         }
                     
                     }
