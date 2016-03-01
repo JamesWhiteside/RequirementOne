@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocX">
+      <HintPath>..\packages\DocX.1.0.0.19\lib\net40\DocX.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -123,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="res\Web.config" />
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\ReqOneNLP.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

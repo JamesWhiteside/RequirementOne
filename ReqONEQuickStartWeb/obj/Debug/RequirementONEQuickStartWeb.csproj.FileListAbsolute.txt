@@ -19,3 +19,4 @@ C:\RequirementOne\Starter\RequirementONE Quick Start\ReqONEQuickStartWeb\bin\Req
 C:\RequirementOne\Starter\RequirementONE Quick Start\ReqONEQuickStartWeb\obj\Debug\RequirementONEQuickStartWeb.csprojResolveAssemblyReference.cache
 C:\RequirementOne\Starter\RequirementONE Quick Start\ReqONEQuickStartWeb\obj\Debug\ReqQuickStartWeb.dll
 C:\RequirementOne\Starter\RequirementONE Quick Start\ReqONEQuickStartWeb\obj\Debug\ReqQuickStartWeb.pdb
+C:\RequirementOne\Starter\RequirementONE Quick Start\ReqONEQuickStartWeb\bin\DocX.dll
