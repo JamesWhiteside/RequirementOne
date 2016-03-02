@@ -302,8 +302,10 @@ namespace RequirementONEQuickStartWeb
             }else{
                 foreach (var data in currList)
                 {
-                    Response.Write(data.CustomIdentifier + Environment.NewLine);
-                    Response.Write(data.Name+Environment.NewLine);
+                    Response.Write(data.TreeDetails + Environment.NewLine);
+                    Response.Write(data.TreeName + "");
+                    Response.Write( "(" + data.CustomIdentifier + ")" + Environment.NewLine);
+                    Response.Write(data.Name + Environment.NewLine);
                     Response.Write(data.Details + Environment.NewLine);
                     Response.Write(Environment.NewLine);
                 }
