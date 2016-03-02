@@ -75,9 +75,16 @@
         </tr>
         <tr>
           <td>Specification</td>
-          <td><asp:DropDownList ID="ddlSpecifications" runat="server" /></td>
+          <td><asp:DropDownList ID="ddlSpecifications" runat="server" 
+              AutoPostBack="true" OnSelectedIndexChanged="ddlSpecifications_IndexChanged" /></td>
           <td><asp:Button ID="btnSearchRequirements" runat="server" Text="Search"
             OnClick="btnSearchRequirements_Click" /></td>
+        </tr>
+        <tr>
+            <td>Sections</td>
+          <td><asp:DropDownList ID="ddlSections" runat="server" /></td>
+          <td><asp:Button ID="btnSections" runat="server" Text="Search"
+            OnClick="btnFilterSearch_Click" /></td>
         </tr>
         <tr>
           <td>Review</td>

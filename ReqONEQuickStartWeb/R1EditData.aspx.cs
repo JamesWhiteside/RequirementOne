@@ -111,6 +111,7 @@ namespace RequirementONEQuickStartWeb
             
             var output = reqs.Select(r => new
             {
+                TreeName = r.TreeName,
                 CustomId = r.CustomIdentifier,
                 Name = r.Name,
                 Link = string.Format("https://ui.requirementone.com/specification/overview/specification/requirement/?projectid={0}&specificationid={1}&requirementid={2}",
@@ -302,7 +303,6 @@ namespace RequirementONEQuickStartWeb
             }else{
                 foreach (var data in currList)
                 {
-                    Response.Write(data.TreeDetails + Environment.NewLine);
                     Response.Write(data.TreeName + "");
                     Response.Write( "(" + data.CustomIdentifier + ")" + Environment.NewLine);
                     Response.Write(data.Name + Environment.NewLine);
@@ -319,10 +319,41 @@ namespace RequirementONEQuickStartWeb
         
         
         protected void UpLoadData_Click(object sender, EventArgs e) 
-        {
-            
+        {  
              
         }
-         
+
+        protected void ddlSpecifications_IndexChanged(object sender, EventArgs e) 
+        {
+            if (ddlSpecifications.Items == null)
+                return;
+            LoadSections();  
+        }
+
+        protected void LoadSections() 
+        {
+            
+            var sections = ddlSpecifications.SelectedValue;
+            sections.
+        }
+
+        protected void btnFilterSearch_Click(object sender, EventArgs e) 
+        {
+
+            var output = currList.Select(r => new
+            {
+                TreeName = r.TreeName,
+                CustomId = r.CustomIdentifier,
+                Name = r.Name,
+                Link = string.Format("https://ui.requirementone.com/specification/overview/specification/requirement/?projectid={0}&specificationid={1}&requirementid={2}",
+                    r.ProjectID,
+                    r.SpecificationID,
+                    r.RequirementID),
+                Details = PrepareForHtml(r.Details)
+            });
+
+            lvSearchResults.DataSource = output;
+            lvSearchResults.DataBind();
+        } 
     }
 }

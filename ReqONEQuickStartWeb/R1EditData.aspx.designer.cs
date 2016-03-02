@@ -58,6 +58,24 @@ namespace RequirementONEQuickStartWeb {
         protected global::System.Web.UI.WebControls.Button btnSearchRequirements;
         
         /// <summary>
+        /// ddlSections control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSections;
+        
+        /// <summary>
+        /// btnSections control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSections;
+        
+        /// <summary>
         /// ddlReviews control.
         /// </summary>
         /// <remarks>
