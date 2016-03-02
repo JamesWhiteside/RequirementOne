@@ -318,9 +318,12 @@ namespace RequirementONEQuickStartWeb
         }
         
         
-        protected void UpLoadData_Click(object sender, EventArgs e) 
-        {  
-             
+        protected void btnUpLoadData_Click(object sender, EventArgs e) 
+        {
+            if (this.UploadFile.HasFile) 
+            {
+                this.UploadFile.SaveAs("c:\\" + this.UploadFile.FileName);
+            }    
         }
 
         protected void ddlSpecifications_IndexChanged(object sender, EventArgs e) 
@@ -332,9 +335,8 @@ namespace RequirementONEQuickStartWeb
 
         protected void LoadSections() 
         {
-            
-            var sections = ddlSpecifications.SelectedValue;
-            sections.
+            ddlSections.Items.Add(new ListItem("N/A"));
+            //ddlSections.Items.AddRange(ddlSpecifications.SelectedValue.Select(s => new ListItem(s.))).ToArray();
         }
 
         protected void btnFilterSearch_Click(object sender, EventArgs e) 

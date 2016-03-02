@@ -83,9 +83,10 @@
         <tr>
             <td>Sections</td>
           <td><asp:DropDownList ID="ddlSections" runat="server" /></td>
-          <td><asp:Button ID="btnSections" runat="server" Text="Search"
+          <td><asp:Button ID="btnSections" runat="server" Text="Apply"
             OnClick="btnFilterSearch_Click" /></td>
         </tr>
+          
         <tr>
           <td>Review</td>
           <td><asp:DropDownList ID="ddlReviews" runat="server" /></td>
@@ -103,10 +104,14 @@
     <div><asp:Button ID="LoadButton" runat="server" Text="Download Data"
             OnClick="LoadData_Click" ToolTip="Download records as word Doc" />
     </div>
-    <div><asp:Button ID="UploadChanges" runat="server" Text="Upload Data" ToolTip="Upload changes to documents" 
-        OnClick="UpLoadData_Click" OnClientClick="if (!confirm('Are you sure you want to proceed with changes?')) return false;" Width="135px"/>
+    <div>
+        <asp:FileUpload ID ="UploadFile" runat="server" />
+        
+        <asp:Button ID="UploadChanges" runat="server" Text="Upload Data" ToolTip="Upload changes to documents" 
+        OnClick="btnUpLoadData_Click" Width="135px"/>
         
     </div>
+    
     <div></div>
     <div class="results">  
         <br />
