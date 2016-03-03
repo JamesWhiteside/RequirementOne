@@ -36,15 +36,6 @@
       float:none;
     }
 
-      .auto-style1
-      {
-          width: 97px;
-      }
-
-      .auto-style2
-      {
-          width: 4px;
-      }
       .searchButton
       {
       }
@@ -119,6 +110,8 @@
         <br />
         <br />
       <br />
+        <br />
+        <br />
       <asp:ListView ID="lvSearchResults" runat="server">
         <ItemTemplate>
           <h4>

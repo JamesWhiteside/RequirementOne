@@ -277,7 +277,7 @@ namespace RequirementONEQuickStartWeb
             Response.Clear();
             Response.ClearHeaders();
             Response.ClearContent();
-            Response.ContentEncoding = System.Text.Encoding.GetEncoding("Windows-1252");
+            //Response.ContentEncoding = System.Text.Encoding.GetEncoding("Windows-1252");
             Response.ContentType = "application/msword";
             Response.AddHeader("Content-Disposition", "attachment; filename=\"Record" + ".doc\"");
 
@@ -320,25 +320,41 @@ namespace RequirementONEQuickStartWeb
         
         protected void btnUpLoadData_Click(object sender, EventArgs e) 
         {
+
             if (this.UploadFile.HasFile) 
             {
-                this.UploadFile.SaveAs("c:\\" + this.UploadFile.FileName);
+                //List<RequirementDetails> reqs = new List<RequirementDetails>();
+                //this.UploadFile.SaveAs("c:\\" + this.UploadFile.FileName);
+                StreamReader readFile = new StreamReader(this.UploadFile.FileContent);
+                while (readFile.Peek() != -1) {
+                    string text = readFile.ReadLine();
+                    
+                }
+                //reqs.AddRange(_api.SpecificationsRequirementSearch(new RequirementSearchArguments
+                //{
+                //    Projects = new Guid[] { new Guid(ddlProjects.SelectedValue) },
+                //    Specifications = new SpecificationSearchArguments[] { new SpecificationSearchArguments { SpecificationID = new Guid(ddlSpecifications.Items[i].Value) } },
+                //    FreeText = text
+                //}, AuthUtil.AuthToken).Requirements);
+                
             }    
         }
 
         protected void ddlSpecifications_IndexChanged(object sender, EventArgs e) 
         {
+            /*
             if (ddlSpecifications.Items == null)
                 return;
             LoadSections();  
-        }
-
+            */ 
+       }
+        //Will load individual titles
         protected void LoadSections() 
         {
             ddlSections.Items.Add(new ListItem("N/A"));
             //ddlSections.Items.AddRange(ddlSpecifications.SelectedValue.Select(s => new ListItem(s.))).ToArray();
         }
-
+        //Returns Search results after using an Extra filter
         protected void btnFilterSearch_Click(object sender, EventArgs e) 
         {
 
