@@ -53,7 +53,7 @@
       <h3>List requirements or issues</h3>
 
     <div class="searchCriteria">
-
+        
       <table>
         <tr>
           <td>Search for text</td>
@@ -110,6 +110,7 @@
         <br />
         <br />
       <br />
+        <asp:TextBox ID="TextBox1" runat="server" TextMode="MultiLine" Height="76px" Width="250px"></asp:TextBox>
         <br />
         <br />
       <asp:ListView ID="lvSearchResults" runat="server">

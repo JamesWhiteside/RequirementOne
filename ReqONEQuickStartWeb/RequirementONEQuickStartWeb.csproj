@@ -27,6 +27,8 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -89,8 +91,8 @@
     <Compile Include="R1EditData.aspx.designer.cs">
       <DependentUpon>R1EditData.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomTreeNodeEventArgs.cs" />
-    <Compile Include="CustomTreeView.cs" />
+    <Compile Include="CustomTreeView\CustomTreeNodeEventArgs.cs" />
+    <Compile Include="CustomTreeView\CustomTreeView.cs" />
     <Compile Include="R1Hierarchy.aspx.cs">
       <DependentUpon>R1Hierarchy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -141,6 +143,9 @@
       <Name>ReqOneApiReference</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Search\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -166,6 +171,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

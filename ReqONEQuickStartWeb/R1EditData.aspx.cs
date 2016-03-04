@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Diagnostics;
 using ReqOneApiReference.ReqOneApi;
 using ReqOneUI;
+
 
 namespace RequirementONEQuickStartWeb
 {
@@ -325,11 +327,28 @@ namespace RequirementONEQuickStartWeb
             {
                 //List<RequirementDetails> reqs = new List<RequirementDetails>();
                 //this.UploadFile.SaveAs("c:\\" + this.UploadFile.FileName);
-                StreamReader readFile = new StreamReader(this.UploadFile.FileContent);
-                while (readFile.Peek() != -1) {
-                    string text = readFile.ReadLine();
-                    
+                string path = Path.GetExtension(this.UploadFile.FileName);
+                switch (path) 
+                { 
+                    case "xls":
+                        processExcelData(this.UploadFile);
+                        break;
+                    case ".xlsx":
+                        processExcelData(this.UploadFile);
+                        break;
+                    case ".doc":
+                        processWordorTxTData(this.UploadFile);
+                        break;
+                    case ".docx":
+                        processWordorTxTData(this.UploadFile);
+                        break;
+                    default:
+                        TextBox1.Text = "File Type not supported";
+                        break;
                 }
+                    
+                
+
                 //reqs.AddRange(_api.SpecificationsRequirementSearch(new RequirementSearchArguments
                 //{
                 //    Projects = new Guid[] { new Guid(ddlProjects.SelectedValue) },
@@ -338,6 +357,36 @@ namespace RequirementONEQuickStartWeb
                 //}, AuthUtil.AuthToken).Requirements);
                 
             }    
+        }
+
+        /// <summary>
+        /// Read excel Docs by Fields
+        /// If this is gonna upload into R1
+        /// Need TOC or Dictionary to identify fields
+        /// Or need to create new fields
+        /// </summary>
+        /// <param name="file"></param>
+        private void processExcelData(FileUpload file) { 
+            
+            
+        }
+
+        /// <summary>
+        /// Reads all lines of word Doc
+        /// TODO: Have it distinguish between differents
+        /// Maybe Strim.Trim() (pretty slow), 
+        /// or something along those lines
+        /// </summary>
+        /// <param name="file">Takes a file to process</param>
+        private void processWordorTxTData(FileUpload file) 
+        {
+            StreamReader readFile = new StreamReader(file.FileContent);
+            while (readFile.Peek() != -1)
+            {
+                string text = readFile.ReadLine();
+                TextBox1.Text += PrepareForHtml(text);
+
+            }
         }
 
         protected void ddlSpecifications_IndexChanged(object sender, EventArgs e) 
