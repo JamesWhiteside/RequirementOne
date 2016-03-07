@@ -217,6 +217,27 @@ namespace RequirementONEQuickStartWeb
         }
 
         // ======================================================
+        protected void SearchTOC() {
+            
+            var args = new RequirementSearchArguments();
+            var specArgs = _api.SpecificationsRequirementSearch(new RequirementSearchArguments {Specifications = new SpecificationSearchArguments[] { 
+            new SpecificationSearchArguments {SpecificationID = new Guid(ddlSpecifications.SelectedValue)} }}, AuthUtil.AuthToken).Requirements;
+            args.Specifications = new SpecificationSearchArguments[] { specArgs };
+
+            args.DataToGet = new RequirementDataFilter();
+            args.DataToGet.AttachmentCount = true;
+            args.DataToGet.NoteCount = true;
+            args.DataToGet.LinkCount = true;
+            args.DataToGet.Timestamps = true;
+            args.DataToGet.CustomFieldsIDs = customDefinitionIds;
+            int currentPage = int.Parse(allValues[Keys.CurrentPage]);
+            int perPage = int.Parse(allValues[Keys.PerPage]);
+        
+        
+        
+        }
+        // ======================================================
+
 
         List<Issue> SearchIssues(string text, out Statistics stats)
         {
@@ -279,7 +300,7 @@ namespace RequirementONEQuickStartWeb
             Response.Clear();
             Response.ClearHeaders();
             Response.ClearContent();
-            //Response.ContentEncoding = System.Text.Encoding.GetEncoding("Windows-1252");
+            
             Response.ContentType = "application/msword";
             Response.AddHeader("Content-Disposition", "attachment; filename=\"Record" + ".doc\"");
 
@@ -367,8 +388,7 @@ namespace RequirementONEQuickStartWeb
         /// </summary>
         /// <param name="file"></param>
         private void processExcelData(FileUpload file) { 
-            
-            
+                
         }
 
         /// <summary>
@@ -387,7 +407,6 @@ namespace RequirementONEQuickStartWeb
                 TextBox1.Text += PrepareForHtml(text);
 
             }
-
         }
 
         protected void ddlSpecifications_IndexChanged(object sender, EventArgs e) 
