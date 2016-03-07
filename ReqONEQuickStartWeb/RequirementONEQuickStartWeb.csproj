@@ -122,6 +122,9 @@
     <Compile Include="res\R1OAuthRedirect.aspx.designer.cs">
       <DependentUpon>R1OAuthRedirect.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SearchWithTOC.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="util\AspUtil.cs" />
     <Compile Include="util\AuthUtil.cs" />
     <Compile Include="util\SessionContext.cs" />

@@ -218,12 +218,13 @@ namespace RequirementONEQuickStartWeb
 
         // ======================================================
         protected void SearchTOC() {
-            
+
+            List<CustomFieldDefinition> CustomFields = _api.SpecificationsRequirementCustomFieldsGet()
             var args = new RequirementSearchArguments();
             var specArgs = _api.SpecificationsRequirementSearch(new RequirementSearchArguments {Specifications = new SpecificationSearchArguments[] { 
             new SpecificationSearchArguments {SpecificationID = new Guid(ddlSpecifications.SelectedValue)} }}, AuthUtil.AuthToken).Requirements;
             args.Specifications = new SpecificationSearchArguments[] { specArgs };
-
+            
             args.DataToGet = new RequirementDataFilter();
             args.DataToGet.AttachmentCount = true;
             args.DataToGet.NoteCount = true;
